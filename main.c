@@ -103,7 +103,7 @@ int main( int argc, char *argv[] )
     }
     else
     {
-        fprintf( stderr, "Error: One argument for input file expected!" );
+        fprintf( stderr, "Error: One argument for input file expected!\n" );
         return 0;
     }
 
@@ -178,7 +178,7 @@ Graph *loadGraph( char *filename )
     FILE *f = fopen( filename, "r" );
     if( f == NULL )
     {
-        fprintf( stderr, "Could not read file!" );
+        fprintf( stderr, "Could not read file!\n" );
         return NULL;
     }
 
@@ -186,7 +186,7 @@ Graph *loadGraph( char *filename )
     int vertexCount;
     if( fscanf( f, "%d\n", &vertexCount ) != 1 )
     {
-        fprintf( stderr, "Error: Input format incorrect!" );
+        fprintf( stderr, "Error: Input format incorrect!\n" );
         return NULL;
     }
 
@@ -202,7 +202,7 @@ Graph *loadGraph( char *filename )
     {
         if( vertexNum1 >= vertexCount || vertexNum2 >= vertexCount )
         {
-            fprintf( stderr, "Error: Input format incorrect!" );
+            fprintf( stderr, "Error: Input format incorrect!\n" );
             return NULL;
         }
 
@@ -323,7 +323,7 @@ EulerianCycleResult findEulerianCycle( Graph *graph, GraphInformation graphInfo 
     DListIterator *pathIterator = dListIterator_new( pathElements );
     dListIterator_toFirst( pathIterator );
 
-    // Until we reached the end of the path
+    // Until we reached the end of the path.
     while( !dListIterator_isAtEnd( pathIterator ))
     {
         PathElement *currElement = (PathElement *) dListIterator_get( pathIterator );

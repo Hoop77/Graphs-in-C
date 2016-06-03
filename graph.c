@@ -127,37 +127,38 @@ void graph_addEdgePair( Graph *graph, int vertexNum1, int vertexNum2 )
 }
 
 
-void graph_removeEdgePair( Graph *graph, int vertexNum1, int vertexNum2 )
+bool graph_removeEdgePair( Graph *graph, int vertexNum1, int vertexNum2 )
 {
     // Get the vertex 1 which stores the list of edge.
     Vertex *vertex1 = graph->vertices[ vertexNum1 ];
 
     // Create an iterator which will get us the edge going from vertex 1 to vertex 2.
-    DListIterator *edgeIterator = dListIterator_new( vertex_getEdges( vertex1 ));
-    dListIterator_toFirst( edgeIterator );
+    DListIterator *edgeIterator1 = dListIterator_new( vertex_getEdges( vertex1 ));
+    dListIterator_toFirst( edgeIterator1 );
 
     // Prepare a comparator for searching.
     Edge searchEdge = { vertexNum2, NULL };
     Comparator *comparator = comparator_new( &searchEdge, (CompareFunction) edge_equals );
 
     // Search the edge.
-    Edge *edge1 = (Edge *) dListIterator_search( edgeIterator, comparator );
+    Edge *edge1 = (Edge *) dListIterator_search( edgeIterator1, comparator );
 
     // If we haven't found the edge, we stop here.
     if( edge1 == NULL )
-        return;
+        return false;
 
     // First remove the edge going from vertex 2 to vertex 1.
-    dListIterator_removeAndDestroy( edge1->correspondingEdgeIterator );
+    DListIterator *edgeIterator2 = edge_getCorrespondingEdgeIterator( edge1 );
+    dListIterator_removeAndDestroy( edgeIterator2 );
 
     // And finally remove the edge going from vertex 1 to vertex 2.
-    dListIterator_removeAndDestroy( edgeIterator );
+    dListIterator_removeAndDestroy( edgeIterator1 );
 
     // Clean up.
     comparator_destroy( comparator );
-    dListIterator_destroy( edgeIterator );
+    dListIterator_destroy( edgeIterator1 );
 
-    return;
+    return true;
 }
 
 

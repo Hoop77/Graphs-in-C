@@ -40,7 +40,7 @@ Vertex *graph_getVertex( Graph *, int );
 int     graph_getVertexCount( Graph * );
 void    graph_addVertex( Graph * );
 void    graph_addEdgePair( Graph *, int, int );
-void    graph_removeEdgePair( Graph *, int, int );
+bool    graph_removeEdgePair( Graph *, int, int );
 bool    graph_hasEdges( Graph * );
 
 EXTERN_C_END

@@ -36,9 +36,9 @@ void edge_setCorrespondingEdgeIterator( Edge *edge, DListIterator *corresponding
 }
 
 
-Edge *edge_getCorrespondingEdge( Edge *edge )
+DListIterator *edge_getCorrespondingEdgeIterator( Edge *edge )
 {
-    return (Edge *) dListIterator_get( edge->correspondingEdgeIterator );
+    return edge->correspondingEdgeIterator;
 }
 
 

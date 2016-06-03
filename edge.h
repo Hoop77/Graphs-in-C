@@ -36,7 +36,7 @@ Edge *edge_new( int );
 void  edge_destroy( Edge * );
 int   edge_getToVertexNum( Edge * );
 void  edge_setCorrespondingEdgeIterator( Edge *, DListIterator * );
-Edge *edge_getCorrespondingEdge( Edge * );
+DListIterator *edge_getCorrespondingEdgeIterator( Edge * );
 bool  edge_equals( Edge *, Edge * );
 
 EXTERN_C_END
