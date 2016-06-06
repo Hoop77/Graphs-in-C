@@ -143,19 +143,10 @@ void dListIterator_remove( DListIterator *iterator );
 
 /**
  * @brief Destroy the current node, reconnects the nodes and
- * also destroys the data of the current node.
+ * also destroys the data of the current node using the destroy function of the list.
  * @param iterator
  */
 void dListIterator_removeAndDestroy( DListIterator *iterator );
-
-
-/**
- * @brief Destroys the current node, reconnects the nodes and
- * also uses the custom destroy function to destroy the data of the current node.
- * @param iterator
- * @param destroyFunction
- */
-void dListIterator_removeAndDestroyWith( DListIterator *iterator, DestroyFunction destroyFunction );
 
 
 /**

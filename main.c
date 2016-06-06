@@ -44,21 +44,25 @@ typedef enum
 
 
 /**
- * TODO Comment!
+ * @brief To evaluate the graph type, we have to walk over the vertices
+ * to get certain information which we store in this struct.
  */
 typedef struct
 {
-    GraphType graphType;
-    int startOrEndVertexNum1;
-    int startOrEndVertexNum2;
-    int vertexWithMaxDegree;
+    GraphType graphType;            /**< The graph type. */
+    int startOrEndVertexNum1;       /**< The first potential start or end vertex of an eulerian path. */
+    int startOrEndVertexNum2;       /**< The second potential start or end vertex of an eulerian path. */
+    int vertexWithMaxDegree;        /**< The vertex with max degree in the a graph. */
 } GraphInformation;
 
 
+/**
+ * @brief A structure that stores the output of the algorithm which tries to find an eulerian cycle in a graph.
+ */
 typedef struct
 {
-    bool exists;
-    Path *eulerianCycle;
+    bool exists;            /**< Tells if an eulerian cycle exists. */
+    Path *eulerianCycle;    /**< The result path. */
 } EulerianCycleResult;
 
 
@@ -67,14 +71,75 @@ extern "C" {
 #endif
 
 
-Graph *					loadGraph( char * );
-GraphInformation 		checkVertexDegrees( Graph * );
-void 					convertGraph( Graph *, GraphInformation );
-EulerianCycleResult 	findEulerianCycle( Graph *, GraphInformation );
-Path * 					extractSubCircle( Graph *, int );
+/**
+ * @brief Loads a graph from file.
+ * The file must have the following structure:
+ * In the first line, there must be exactly one integer which represents the vertex count.
+ * In each following line there must be exactly two intergers which represent a pair of edges,
+ * between the first number (=vertex 1) and the second number (=vertex 2).
+ * @param filename
+ * @return The pointer to the created graph if it there're no problems with the file, else NULL.
+ */
+Graph *loadGraph( char *filename );
 
-void 					printEulerianCycle( Path * );
-void					printEulerianPath( Path *, int );
+
+/**
+ * @brief This function goes through each vertex in a graph and creates the graph information.
+ * @param graph
+ * @return The graph information, which is used to evaluate whether there's potential for an
+ * eulerian path in a graph and needed for the following algorithms.
+ */
+GraphInformation checkVertexDegrees( Graph *graph );
+
+
+/**
+ * @brief We know an algorithm to find an eulerian cycle in a graph where all vertices
+ * have even degree. However, this may not work on a graph where only two vertices have uneven degree which
+ * is the criteria for finding an eulerian path. So having a graph where only two vertices have uneven degree,
+ * we simply convert it to a graph with completely even degrees by adding a new vertex to the graph and connecting
+ * the two vertices with uneven degree to that new vertex. Now we can find an eulerian cycle and later
+ * when we want to print it, we can simply ommit the added vertex.
+ * @param graph
+ * @param graphInfo
+ */
+void convertGraph( Graph *graph, GraphInformation graphInfo );
+
+
+/**
+ * @brief This function will find an eulerian cycle in a graph where all vertices have even degrees.
+ * It uses the hierholzer algorithm to do that.
+ * Since we're removing the edges from the graph, we can figure out easily if the graph is disconnected
+ * (in this case, an eulerian cycle/path doesn't exist).
+ * @param graph
+ * @param graphInfo
+ * @return A result structure which stores an indicator whether an eulerian cycle exists and the final graph.
+ */
+EulerianCycleResult findEulerianCycle( Graph *graph, GraphInformation graphInfo );
+
+
+/**
+ * @brief A subroutine of the algorithm to find an eulerian cycle.
+ * This generates a sub-circle-path of the graph and removes the edges which belong to that path.
+ * @param graph
+ * @param startVertexNum
+ * @return The extracted sub-circle-path.
+ */
+Path *extractSubCircle( Graph *graph, int startVertexNum );
+
+
+/**
+ * @brief Prints an eulerian cycle.
+ * @param eulerianCycle
+ */
+void printEulerianCycle( Path *eulerianCycle );
+
+
+/**
+ * @brief Prints an eulerian path.
+ * @param eulerianCylce
+ * @param addedVertexNum
+ */
+void printEulerianPath( Path *eulerianCylce, int addedVertexNum );
 
 
 #ifdef __cplusplus
@@ -94,7 +159,7 @@ int main( int argc, char *argv[] )
     }
     else
     {
-        fprintf( stderr, "Error: One argument for input file expected!\n" );
+        fprintf( stderr, "Ungueltiges Eingabeformat\n" );
         return 0;
     }
 
@@ -143,17 +208,16 @@ int main( int argc, char *argv[] )
             {
                 printEulerianCycle( eulerianCycleResult.eulerianCycle );
             }
-
-            printf( "\n" );
-
-            // Destroy complete the path.
-            path_destroyAll( eulerianCycleResult.eulerianCycle );
         }
         else
         {
-            printf( "An eulerian path does not exist.\nThe graph is disconnected.\n." );
-            path_destroyAll( eulerianCycleResult.eulerianCycle );
+            printf( "-1" );
         }
+
+        printf( "\n" );
+
+        // Destroy complete the path.
+        path_destroyAll( eulerianCycleResult.eulerianCycle );
     }
 
     // Destroy the complete graph.
@@ -169,7 +233,7 @@ Graph *loadGraph( char *filename )
     FILE *f = fopen( filename, "r" );
     if( f == NULL )
     {
-        fprintf( stderr, "Could not read file!\n" );
+        fprintf( stderr, "Ungueltiges Eingabeformat\n" );
         return NULL;
     }
 
@@ -177,7 +241,7 @@ Graph *loadGraph( char *filename )
     int vertexCount;
     if( fscanf( f, "%d\n", &vertexCount ) != 1 )
     {
-        fprintf( stderr, "Error: Input format incorrect!\n" );
+        fprintf( stderr, "Ungueltiges Eingabeformat\n" );
         return NULL;
     }
 
@@ -193,7 +257,7 @@ Graph *loadGraph( char *filename )
     {
         if( vertexNum1 >= vertexCount || vertexNum2 >= vertexCount )
         {
-            fprintf( stderr, "Error: Input format incorrect!\n" );
+            fprintf( stderr, "Ungueltiges Eingabeformat\n" );
             return NULL;
         }
 
@@ -294,7 +358,7 @@ EulerianCycleResult findEulerianCycle( Graph *graph, GraphInformation graphInfo 
 {
     // If the graph has two vertices with uneven degree, we add an edge between those so that we can find an eulerian cycle.
     if( graphInfo.graphType == GRAPH_TYPE_TWO_VERTICES_WITH_UNEVEN_DEGREE )
-        convertGraph( graph, graphInfo );
+       convertGraph( graph, graphInfo );
 
     // The path's first element will be the vertex with the max degree.
     int mergingVertexNum = graphInfo.vertexWithMaxDegree;
@@ -386,8 +450,7 @@ Path *extractSubCircle( Graph *graph, int startVertexNum )
         path_append( subCircle, nextVertexNum );
 
         // And now we remove the edges between the vertices so we won't take it again.
-        bool removed = graph_removeFirstEdgePair( graph, currVertexNum );
-        assert( removed );
+        graph_removeEdgePair( graph, currVertexNum, nextVertexNum );
 
         // Finally we update the current vertex.
         currVertexNum = nextVertexNum;

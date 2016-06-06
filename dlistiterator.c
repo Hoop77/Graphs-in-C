@@ -134,19 +134,6 @@ void dListIterator_removeAndDestroy( DListIterator *iterator )
 }
 
 
-void dListIterator_removeAndDestroyWith( DListIterator *iterator, DestroyFunction destroyFunction )
-{
-    assert( iterator->current );
-    assert( iterator->list->destroyFunction );
-
-    destroyFunction( iterator->current->data );
-
-    dListIterator_remove( iterator );
-
-    return;
-}
-
-
 Data dListIterator_get(DListIterator *iterator)
 {
     assert( iterator->current );

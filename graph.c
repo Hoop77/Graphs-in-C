@@ -165,35 +165,6 @@ bool graph_removeEdgePair( Graph *graph, int vertexNum1, int vertexNum2 )
 }
 
 
-bool graph_removeFirstEdgePair( Graph *graph, int vertexNum )
-{
-    // Get the vertex 1 which stores the list of edge.
-    Vertex *vertex1 = graph->vertices[ vertexNum ];
-
-    if( !vertex_hasEdges( vertex1 ))
-        return false;
-
-    // Create an iterator which will get us the edge going from vertex 1 to vertex 2.
-    DListIterator *edgeIterator1 = dListIterator_new( vertex_getEdges( vertex1 ));
-    dListIterator_toFirst( edgeIterator1 );
-
-    // Search the edge.
-    Edge *edge1 = (Edge *) dListIterator_get( edgeIterator1 );
-
-    // First remove the edge going from vertex 2 to vertex 1.
-    DListIterator *edgeIterator2 = edge_getCorrespondingEdgeIterator( edge1 );
-    dListIterator_removeAndDestroy( edgeIterator2 );
-
-    // And finally remove the edge going from vertex 1 to vertex 2.
-    dListIterator_removeAndDestroy( edgeIterator1 );
-
-    // Clean up.
-    dListIterator_destroy( edgeIterator1 );
-
-    return true;
-}
-
-
 bool graph_hasEdges( Graph *graph )
 {
     int vertexNum;

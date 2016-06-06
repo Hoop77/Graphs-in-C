@@ -1,5 +1,0 @@
-<map id="EulerianCycleResult" name="EulerianCycleResult">
-<area shape="rect" id="node2" href="$structPath.html" title="This is just a container for a list of path elements which simply represent the vertices. " alt="" coords="51,201,101,228"/>
-<area shape="rect" id="node3" href="$structDList.html" title="The data structure of a generic doubly linked list. " alt="" coords="49,112,103,139"/>
-<area shape="rect" id="node4" href="$structDListNode.html" title="The atomic data structure of a generic doubly linked list. (DList) " alt="" coords="34,7,118,33"/>
-</map>

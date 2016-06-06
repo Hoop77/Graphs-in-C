@@ -1,7 +1,0 @@
-<map id="edge.h" name="edge.h">
-<area shape="rect" id="node2" href="$basic_8h.html" title="Just some arbitrary definitions for the library. " alt="" coords="99,304,163,331"/>
-<area shape="rect" id="node6" href="$dlistiterator_8h.html" title="A bidirectional iterator for a doubly linked list. " alt="" coords="82,80,179,107"/>
-<area shape="rect" id="node7" href="$dlist_8h.html" title="A generic doubly linked list. " alt="" coords="118,155,175,181"/>
-<area shape="rect" id="node9" href="$comparator_8h.html" title="An object to compare data. As an example, it can be used to search data in a list. " alt="" coords="277,229,376,256"/>
-<area shape="rect" id="node8" href="$dlistnode_8h.html" title="A node in a generic doubly linked list. " alt="" coords="168,229,253,256"/>
-</map>

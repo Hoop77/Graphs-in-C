@@ -50,7 +50,7 @@ void graph_destroy( Graph *graph );
  * of the graph including all vertices and their edges.
  * @param graph
  */
-void    graph_destroyAll( Graph *graph );
+void graph_destroyAll( Graph *graph );
 
 
 /**
@@ -103,15 +103,6 @@ void graph_addEdgePair( Graph *graph, int vertexNum1, int vertexNum2 );
  * @return true, if the given edge was found and removed, else false.
  */
 bool graph_removeEdgePair( Graph *graph, int vertexNum1, int vertexNum2 );
-
-
-/**
- * @brief Removes the first bidirectional edge of a specified vertex.
- * @param graph
- * @param vertexNum
- * @return true, if there was an edge pair to be removed.
- */
-bool graph_removeFirstEdgePair( Graph *graph, int vertexNum );
 
 
 /**

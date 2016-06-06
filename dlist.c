@@ -58,13 +58,6 @@ void dList_destroyAll( DList *list )
 }
 
 
-void dList_setDestroyFunction( DList *list, DestroyFunction DestroyFunction )
-{
-    list->destroyFunction = DestroyFunction;
-    return;
-}
-
-
 int dList_getSize( DList *list )
 {
     return list->listSize;
@@ -104,21 +97,4 @@ Data dList_get( DList *list, int i )
     }
 
     return node->data;
-}
-
-Data dList_getFirst( DList *list )
-{
-    if( dList_isEmpty( list ))
-        return NULL;
-
-    return list->begin->next->data;
-}
-
-
-Data dList_getLast( DList *list )
-{
-    if( dList_isEmpty( list ))
-        return NULL;
-
-    return list->end->prev->data;
 }
