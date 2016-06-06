@@ -1,3 +1,11 @@
+/**
+ * @file basic.h
+ * @author Philipp Badenhoop
+ * @date 6 Jun 2016
+ * @brief Just some arbitrary definitions for the library.
+ */
+
+
 #ifndef BASIC
 #define BASIC
 
@@ -7,30 +15,13 @@
 #include "stdio.h"
 
 
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// DEFINITIONS
-// -----------
-
-///! A debug flag to print out information when debugging.
-/// This will be out-commented on the release version.
-#define DEBUG
-
-
-#ifdef __cplusplus
-#define EXTERN_C_BEGIN extern "C" {
-#define EXTERN_C_END }
-#else
-#define EXTERN_C_BEGIN
-#define EXTERN_C_END
-#endif
-
-
+/**
+ * @brief Typedefing 'void *' to Data for better readablility.
+ */
 typedef void *Data;
 
 
-//
-// We define the boolean type.
-//
+// Custom bool definition for C.
 #ifndef __cplusplus
 typedef enum
 {
@@ -38,8 +29,6 @@ typedef enum
     true = !false
 } bool;
 #endif
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
 #endif // BASIC

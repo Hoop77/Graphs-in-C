@@ -1,0 +1,393 @@
+\hypertarget{dlistiterator_8h}{}\section{dlistiterator.\+h File Reference}
+\label{dlistiterator_8h}\index{dlistiterator.\+h@{dlistiterator.\+h}}
+
+
+A bidirectional iterator for a doubly linked list.  
+
+
+{\ttfamily \#include \char`\"{}basic.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dlist.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}comparator.\+h\char`\"{}}\\*
+Include dependency graph for dlistiterator.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{dlistiterator_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{dlistiterator_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structDListIterator}{D\+List\+Iterator}
+\begin{DoxyCompactList}\small\item\em A simple bidirectional iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dlistiterator_8h_a6ae949a09312f851d5a1d80f4db0211d}{d\+List\+\_\+foreach}(iterator)
+\begin{DoxyCompactList}\small\item\em With the \hyperlink{structDListIterator}{D\+List\+Iterator} you can simply mimic a foreach loop. It iterates through each node in the list starting with the first node and ending on the discrete end node. \end{DoxyCompactList}\item 
+\#define \hyperlink{dlistiterator_8h_abd85458a77df0ac281983e3e6e5eec29}{d\+List\+\_\+foreach\+Down}(iterator)
+\begin{DoxyCompactList}\small\item\em With the \hyperlink{structDListIterator}{D\+List\+Iterator} you can simply mimic a foreach loop. It iterates through each node in the list starting with the last node and ending on the discrete begin node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$ \hyperlink{dlistiterator_8h_a8c6fe318a1fd55f6f588f9fb9d1f95fb}{d\+List\+Iterator\+\_\+new} (\hyperlink{structDList}{D\+List} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a new iterator. \end{DoxyCompactList}\item 
+void \hyperlink{dlistiterator_8h_a9cdeec2250f90a60c8e4866b4ecff8fc}{d\+List\+Iterator\+\_\+destroy} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator)
+\begin{DoxyCompactList}\small\item\em Simply frees the pointer to the iterator. \end{DoxyCompactList}\item 
+void \hyperlink{dlistiterator_8h_a9b284f631ebd355706fbf4939c2d70bf}{d\+List\+Iterator\+\_\+increment} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator)
+\begin{DoxyCompactList}\small\item\em The current node is set to its next node. \end{DoxyCompactList}\item 
+void \hyperlink{dlistiterator_8h_aecc3cba721cabfe6e99c9426e386795c}{d\+List\+Iterator\+\_\+decrement} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator)
+\begin{DoxyCompactList}\small\item\em The current node is set to its previous node. \end{DoxyCompactList}\item 
+bool \hyperlink{dlistiterator_8h_a906e71ecbed84905246acd0f3f0a737b}{d\+List\+Iterator\+\_\+is\+At\+End} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator)
+\item 
+bool \hyperlink{dlistiterator_8h_a18e7ea340620815e7fec089948286a88}{d\+List\+Iterator\+\_\+is\+At\+Begin} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator)
+\item 
+void \hyperlink{dlistiterator_8h_a04960af0164fc5ad14a8a650ca11a59f}{d\+List\+Iterator\+\_\+insert\+After} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator, \hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data} data)
+\begin{DoxyCompactList}\small\item\em Inserts a new node with given data between the current node and the next node of the current node. \end{DoxyCompactList}\item 
+void \hyperlink{dlistiterator_8h_ae5e4c00bd3f2b7a85c6f38e5731d235e}{d\+List\+Iterator\+\_\+remove} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator)
+\begin{DoxyCompactList}\small\item\em Destroys the current node and reconnects the nodes. \end{DoxyCompactList}\item 
+void \hyperlink{dlistiterator_8h_a887053dafcab55a79ce65ed6a820909c}{d\+List\+Iterator\+\_\+remove\+And\+Destroy} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator)
+\begin{DoxyCompactList}\small\item\em Destroy the current node, reconnects the nodes and also destroys the data of the current node. \end{DoxyCompactList}\item 
+\hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data} \hyperlink{dlistiterator_8h_ae2f4cb30c14a94da1c843ba79bd418b2}{d\+List\+Iterator\+\_\+get} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator)
+\item 
+\hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data} \hyperlink{dlistiterator_8h_a6bfe7399f641f4dcdd54212f4b3a268f}{d\+List\+Iterator\+\_\+search} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator, \hyperlink{structComparator}{Comparator} $\ast$comparator)
+\begin{DoxyCompactList}\small\item\em Uses a comparator object to search a node in the list. The search is incremental and starts at the current node. \end{DoxyCompactList}\item 
+void \hyperlink{dlistiterator_8h_afde985be14b96579309b54eed487edd6}{d\+List\+Iterator\+\_\+to\+First} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator)
+\begin{DoxyCompactList}\small\item\em Sets the current node to the {\bfseries first} node of the list. \end{DoxyCompactList}\item 
+void \hyperlink{dlistiterator_8h_aa5fb3cc3e82ba75af115999bccd88460}{d\+List\+Iterator\+\_\+to\+Last} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator)
+\begin{DoxyCompactList}\small\item\em Sets the current node to the {\bfseries last} node of the lsit. \end{DoxyCompactList}\item 
+void \hyperlink{dlistiterator_8h_a771716dfe7506ec19eeae3f5dbd8efca}{d\+List\+Iterator\+\_\+merge} (\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$iterator, \hyperlink{structDList}{D\+List} $\ast$merge\+List)
+\begin{DoxyCompactList}\small\item\em Inserts the nodes of the specified merge list (excluding the discrete begin and end nodes) after the current node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A bidirectional iterator for a doubly linked list. 
+
+\begin{DoxyAuthor}{Author}
+Philipp Badenhoop 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6 Jun 2016 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+\_\+foreach@{d\+List\+\_\+foreach}}
+\index{d\+List\+\_\+foreach@{d\+List\+\_\+foreach}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+\_\+foreach}{dList_foreach}}]{\setlength{\rightskip}{0pt plus 5cm}\#define d\+List\+\_\+foreach(
+\begin{DoxyParamCaption}
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_a6ae949a09312f851d5a1d80f4db0211d}{}\label{dlistiterator_8h_a6ae949a09312f851d5a1d80f4db0211d}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}( \hyperlink{dlistiterator_8h_afde985be14b96579309b54eed487edd6}{dListIterator\_toFirst}( iterator ); \(\backslash\)
+                                         !\hyperlink{dlistiterator_8h_a906e71ecbed84905246acd0f3f0a737b}{dListIterator\_isAtEnd}( iterator ); 
+      \hyperlink{dlistiterator_8h_a9b284f631ebd355706fbf4939c2d70bf}{\(\backslash\)}
+\hyperlink{dlistiterator_8h_a9b284f631ebd355706fbf4939c2d70bf}{                                         dListIterator\_increment}
+      ( iterator ))
+\end{DoxyCode}
+
+
+With the \hyperlink{structDListIterator}{D\+List\+Iterator} you can simply mimic a foreach loop. It iterates through each node in the list starting with the first node and ending on the discrete end node. 
+
+\begin{DoxyAttention}{Attention}
+When the loop is over, the iterator stands on the discrete end node. This means\+: If you want to get the data of the current node afterwards, you {\bfseries must} set the iterator to a valid node first (not the discrete begin or end nodes)! 
+\end{DoxyAttention}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+\_\+foreach\+Down@{d\+List\+\_\+foreach\+Down}}
+\index{d\+List\+\_\+foreach\+Down@{d\+List\+\_\+foreach\+Down}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+\_\+foreach\+Down}{dList_foreachDown}}]{\setlength{\rightskip}{0pt plus 5cm}\#define d\+List\+\_\+foreach\+Down(
+\begin{DoxyParamCaption}
+\item[{}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_abd85458a77df0ac281983e3e6e5eec29}{}\label{dlistiterator_8h_abd85458a77df0ac281983e3e6e5eec29}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}( \hyperlink{dlistiterator_8h_aa5fb3cc3e82ba75af115999bccd88460}{dListIterator\_toLast}( iterator ); \(\backslash\)
+                                             !\hyperlink{dlistiterator_8h_a18e7ea340620815e7fec089948286a88}{dListIterator\_isAtBegin}( iterator ); 
+      \hyperlink{dlistiterator_8h_aecc3cba721cabfe6e99c9426e386795c}{\(\backslash\)}
+\hyperlink{dlistiterator_8h_aecc3cba721cabfe6e99c9426e386795c}{                                             dListIterator\_decrement}
+      ( iterator ))
+\end{DoxyCode}
+
+
+With the \hyperlink{structDListIterator}{D\+List\+Iterator} you can simply mimic a foreach loop. It iterates through each node in the list starting with the last node and ending on the discrete begin node. 
+
+\begin{DoxyAttention}{Attention}
+When the loop is over, the iterator stands on the discrete begin node. This means\+: If you want to get the data of the current node afterwards, you {\bfseries must} set the iterator to a valid node first (not the discrete begin or end nodes)! 
+\end{DoxyAttention}
+
+
+\subsection{Function Documentation}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+decrement@{d\+List\+Iterator\+\_\+decrement}}
+\index{d\+List\+Iterator\+\_\+decrement@{d\+List\+Iterator\+\_\+decrement}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+decrement(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_decrement(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Iterator\+\_\+decrement (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_aecc3cba721cabfe6e99c9426e386795c}{}\label{dlistiterator_8h_aecc3cba721cabfe6e99c9426e386795c}
+
+
+The current node is set to its previous node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+Do not decrement if the current node is the discrete begin node! 
+\end{DoxyAttention}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+destroy@{d\+List\+Iterator\+\_\+destroy}}
+\index{d\+List\+Iterator\+\_\+destroy@{d\+List\+Iterator\+\_\+destroy}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+destroy(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_destroy(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Iterator\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_a9cdeec2250f90a60c8e4866b4ecff8fc}{}\label{dlistiterator_8h_a9cdeec2250f90a60c8e4866b4ecff8fc}
+
+
+Simply frees the pointer to the iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+\end{DoxyParams}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+get@{d\+List\+Iterator\+\_\+get}}
+\index{d\+List\+Iterator\+\_\+get@{d\+List\+Iterator\+\_\+get}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+get(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_get(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} d\+List\+Iterator\+\_\+get (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_ae2f4cb30c14a94da1c843ba79bd418b2}{}\label{dlistiterator_8h_ae2f4cb30c14a94da1c843ba79bd418b2}
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data of the current node. 
+\end{DoxyReturn}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+increment@{d\+List\+Iterator\+\_\+increment}}
+\index{d\+List\+Iterator\+\_\+increment@{d\+List\+Iterator\+\_\+increment}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+increment(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_increment(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Iterator\+\_\+increment (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_a9b284f631ebd355706fbf4939c2d70bf}{}\label{dlistiterator_8h_a9b284f631ebd355706fbf4939c2d70bf}
+
+
+The current node is set to its next node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+Do not increment if the current node is the discrete end node! 
+\end{DoxyAttention}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+insert\+After@{d\+List\+Iterator\+\_\+insert\+After}}
+\index{d\+List\+Iterator\+\_\+insert\+After@{d\+List\+Iterator\+\_\+insert\+After}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+insert\+After(\+D\+List\+Iterator $\ast$iterator, Data data)}{dListIterator_insertAfter(DListIterator *iterator, Data data)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Iterator\+\_\+insert\+After (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator, }
+\item[{{\bf Data}}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_a04960af0164fc5ad14a8a650ca11a59f}{}\label{dlistiterator_8h_a04960af0164fc5ad14a8a650ca11a59f}
+
+
+Inserts a new node with given data between the current node and the next node of the current node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+is\+At\+Begin@{d\+List\+Iterator\+\_\+is\+At\+Begin}}
+\index{d\+List\+Iterator\+\_\+is\+At\+Begin@{d\+List\+Iterator\+\_\+is\+At\+Begin}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+is\+At\+Begin(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_isAtBegin(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}bool d\+List\+Iterator\+\_\+is\+At\+Begin (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_a18e7ea340620815e7fec089948286a88}{}\label{dlistiterator_8h_a18e7ea340620815e7fec089948286a88}
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if the current node is the {\bfseries discrete begin node} of the list.
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+It is not meant that the current node is the {\bfseries first node} of the list. Please check out the definitions of \hyperlink{structDList}{D\+List} for more information. 
+\end{DoxyAttention}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+is\+At\+End@{d\+List\+Iterator\+\_\+is\+At\+End}}
+\index{d\+List\+Iterator\+\_\+is\+At\+End@{d\+List\+Iterator\+\_\+is\+At\+End}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+is\+At\+End(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_isAtEnd(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}bool d\+List\+Iterator\+\_\+is\+At\+End (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_a906e71ecbed84905246acd0f3f0a737b}{}\label{dlistiterator_8h_a906e71ecbed84905246acd0f3f0a737b}
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if the current node is the {\bfseries discrete end node} of the list.
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+It is not meant that the current node is the {\bfseries last node} of the list. Please check out the definitions of \hyperlink{structDList}{D\+List} for more information. 
+\end{DoxyAttention}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+merge@{d\+List\+Iterator\+\_\+merge}}
+\index{d\+List\+Iterator\+\_\+merge@{d\+List\+Iterator\+\_\+merge}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+merge(\+D\+List\+Iterator $\ast$iterator, D\+List $\ast$merge\+List)}{dListIterator_merge(DListIterator *iterator, DList *mergeList)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Iterator\+\_\+merge (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator, }
+\item[{{\bf D\+List} $\ast$}]{merge\+List}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_a771716dfe7506ec19eeae3f5dbd8efca}{}\label{dlistiterator_8h_a771716dfe7506ec19eeae3f5dbd8efca}
+
+
+Inserts the nodes of the specified merge list (excluding the discrete begin and end nodes) after the current node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+{\em merge\+List} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+After doing this, it should be obvious that the merge list cannot be used anymore. Because of that, the merge list is going to be destroyed after calling this function! So do not access it anymore! 
+\end{DoxyAttention}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+new@{d\+List\+Iterator\+\_\+new}}
+\index{d\+List\+Iterator\+\_\+new@{d\+List\+Iterator\+\_\+new}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+new(\+D\+List $\ast$list)}{dListIterator_new(DList *list)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+List\+Iterator}$\ast$ d\+List\+Iterator\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_a8c6fe318a1fd55f6f588f9fb9d1f95fb}{}\label{dlistiterator_8h_a8c6fe318a1fd55f6f588f9fb9d1f95fb}
+
+
+Allocates and initializes a new iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the new iterator. 
+\end{DoxyReturn}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+remove@{d\+List\+Iterator\+\_\+remove}}
+\index{d\+List\+Iterator\+\_\+remove@{d\+List\+Iterator\+\_\+remove}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+remove(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_remove(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Iterator\+\_\+remove (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_ae5e4c00bd3f2b7a85c6f38e5731d235e}{}\label{dlistiterator_8h_ae5e4c00bd3f2b7a85c6f38e5731d235e}
+
+
+Destroys the current node and reconnects the nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+This does not destroy the data of the current node! 
+\end{DoxyAttention}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+remove\+And\+Destroy@{d\+List\+Iterator\+\_\+remove\+And\+Destroy}}
+\index{d\+List\+Iterator\+\_\+remove\+And\+Destroy@{d\+List\+Iterator\+\_\+remove\+And\+Destroy}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+remove\+And\+Destroy(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_removeAndDestroy(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Iterator\+\_\+remove\+And\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_a887053dafcab55a79ce65ed6a820909c}{}\label{dlistiterator_8h_a887053dafcab55a79ce65ed6a820909c}
+
+
+Destroy the current node, reconnects the nodes and also destroys the data of the current node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+\end{DoxyParams}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+search@{d\+List\+Iterator\+\_\+search}}
+\index{d\+List\+Iterator\+\_\+search@{d\+List\+Iterator\+\_\+search}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+search(\+D\+List\+Iterator $\ast$iterator, Comparator $\ast$comparator)}{dListIterator_search(DListIterator *iterator, Comparator *comparator)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} d\+List\+Iterator\+\_\+search (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator, }
+\item[{{\bf Comparator} $\ast$}]{comparator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_a6bfe7399f641f4dcdd54212f4b3a268f}{}\label{dlistiterator_8h_a6bfe7399f641f4dcdd54212f4b3a268f}
+
+
+Uses a comparator object to search a node in the list. The search is incremental and starts at the current node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+{\em comparator} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data of the node to search for if it finds it, else N\+U\+LL.
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+If it does not find the data to search for, the iterator\textquotesingle{}s current node will be the discrete end node. This means\+: If you want to get the data of the current node afterwards, you {\bfseries must} set the iterator to a valid node first (not the discrete begin or end nodes)! 
+\end{DoxyAttention}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+to\+First@{d\+List\+Iterator\+\_\+to\+First}}
+\index{d\+List\+Iterator\+\_\+to\+First@{d\+List\+Iterator\+\_\+to\+First}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+to\+First(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_toFirst(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Iterator\+\_\+to\+First (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_afde985be14b96579309b54eed487edd6}{}\label{dlistiterator_8h_afde985be14b96579309b54eed487edd6}
+
+
+Sets the current node to the {\bfseries first} node of the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+It is not meant that the current node will be set to the discrete begin node! Please check out the definitions of \hyperlink{structDList}{D\+List} for more information. 
+\end{DoxyAttention}
+\index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+to\+Last@{d\+List\+Iterator\+\_\+to\+Last}}
+\index{d\+List\+Iterator\+\_\+to\+Last@{d\+List\+Iterator\+\_\+to\+Last}!dlistiterator.\+h@{dlistiterator.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+to\+Last(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_toLast(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Iterator\+\_\+to\+Last (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Iterator} $\ast$}]{iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistiterator_8h_aa5fb3cc3e82ba75af115999bccd88460}{}\label{dlistiterator_8h_aa5fb3cc3e82ba75af115999bccd88460}
+
+
+Sets the current node to the {\bfseries last} node of the lsit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterator} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+It is not meant that the current node will be set to the discrete end node! Please check out the definitions of \hyperlink{structDList}{D\+List} for more information. 
+\end{DoxyAttention}

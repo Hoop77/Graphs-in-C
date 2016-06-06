@@ -140,21 +140,24 @@ Data dListIterator_search( DListIterator *iterator, Comparator *comparator )
 {
     assert( iterator->current );
 
-    Data compareData = NULL;
+    Data result = NULL;
 
-    // Start searching from the current node.
+    // Start searching at the current node.
     while( !dListIterator_isAtEnd( iterator ))
     {
-        compareData = dListIterator_get( iterator );
+        Data compareData = dListIterator_get( iterator );
 
         // If the condition is true we've found the element.
         if( comparator_compare( comparator, compareData ))
+        {
+            result = compareData;
             break;
+        }
 
         dListIterator_increment( iterator );
     }
 
-    return compareData;
+    return result;
 }
 
 

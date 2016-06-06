@@ -24,12 +24,14 @@
 // DEFINITIONS
 // -----------
 
-///! Just a simple flag which should indicate if a vertex number is not valid.
+
+#define NDEBUG
+
+
+// Just a simple flag which should indicate if a vertex number is not valid.
 #define VERTEX_UNDEFINED	-1
 
-//
-// We define have different types of graphs.
-//
+
 typedef enum
 {
     GRAPH_TYPE_NO_VERTICES_WITH_UNEVEN_DEGREE,
@@ -45,9 +47,6 @@ typedef enum
 // DATA STRUCTURES
 // ---------------
 
-//
-// Information about a graph.
-//
 typedef struct
 {
     GraphType graphType;
@@ -56,9 +55,7 @@ typedef struct
     int vertexWithMaxDegree;
 } GraphInformation;
 
-//
-// Result data of findEulerianCycle().
-//
+
 typedef struct
 {
     bool exists;
@@ -72,7 +69,9 @@ typedef struct
 // FUNCTION DECLARATION
 // --------------------
 
-EXTERN_C_BEGIN
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 Graph *					loadGraph( char * );
 GraphInformation 		checkVertexDegrees( Graph * );
@@ -83,10 +82,9 @@ Path * 					extractSubCircle( Graph *, int );
 void 					printEulerianCycle( Path * );
 void					printEulerianPath( Path *, int );
 
-// Test
-void printGraph( Graph * );
-
-EXTERN_C_END
+#ifdef __cplusplus
+}
+#endif
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 

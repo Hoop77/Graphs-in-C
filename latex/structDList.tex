@@ -1,0 +1,76 @@
+\hypertarget{structDList}{}\section{D\+List Struct Reference}
+\label{structDList}\index{D\+List@{D\+List}}
+
+
+The data structure of a generic doubly linked list.  
+
+
+
+
+{\ttfamily \#include $<$dlist.\+h$>$}
+
+
+
+Collaboration diagram for D\+List\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{structDList__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structDList_aac5e5498f12e33cdcf9212802b92ded4}{data\+Size}
+\item 
+int \hyperlink{structDList_a85d2c4c3a5abba8fb8c903571ae72369}{list\+Size}
+\item 
+\hyperlink{structDListNode}{D\+List\+Node} $\ast$ \hyperlink{structDList_a9f124f116c54de297ae53584cb3a13f6}{begin}
+\item 
+\hyperlink{structDListNode}{D\+List\+Node} $\ast$ \hyperlink{structDList_ae11ba36cd0e3bdeac4c7189910993864}{end}
+\item 
+\hyperlink{dlist_8h_a2206207e78cb6335a8f41ad6cf76b55c}{Destroy\+Function} \hyperlink{structDList_a039e1b8cd416fceafdb407c1bc51ae4c}{destroy\+Function}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The data structure of a generic doubly linked list. 
+
+The \hyperlink{structDList}{D\+List} is made up of at least two nodes\+: The begin and the end node of the list. These nodes will be created when the list is created and will never be removed from the list until the list is destroyed. Thus, the begin and end nodes will have a N\+U\+LL pointer to their data. They\textquotesingle{}re empty objects. Having discrete nodes for the begin and end of the list will result in fewer checks compared to lists without them.
+
+Some defintions\+: 
+\begin{DoxyCode}
+An \textcolor{stringliteral}{'empty'} list:
+    A list which has no nodes other than the discrete \hyperlink{structDList_a9f124f116c54de297ae53584cb3a13f6}{begin} and \hyperlink{structDList_ae11ba36cd0e3bdeac4c7189910993864}{end} nodes.
+
+The \textcolor{stringliteral}{'first'} node of the list:
+    IF the list is not empty    -> The next node of the discrete \hyperlink{structDList_a9f124f116c54de297ae53584cb3a13f6}{begin} node
+    ELSE                        -> A \textcolor{stringliteral}{'first'} node does not exist / is undefined.
+
+The \textcolor{stringliteral}{'last'} node of the list:
+    IF the list is not empty    -> The previous node of the discrete \hyperlink{structDList_ae11ba36cd0e3bdeac4c7189910993864}{end} node
+    ELSE                        -> A \textcolor{stringliteral}{'last'} node does not exist / is undefined.
+\end{DoxyCode}
+ 
+
+\subsection{Field Documentation}
+\index{D\+List@{D\+List}!begin@{begin}}
+\index{begin@{begin}!D\+List@{D\+List}}
+\subsubsection[{\texorpdfstring{begin}{begin}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+List\+Node}$\ast$ D\+List\+::begin}\hypertarget{structDList_a9f124f116c54de297ae53584cb3a13f6}{}\label{structDList_a9f124f116c54de297ae53584cb3a13f6}
+The discrete begin node of the list. \index{D\+List@{D\+List}!data\+Size@{data\+Size}}
+\index{data\+Size@{data\+Size}!D\+List@{D\+List}}
+\subsubsection[{\texorpdfstring{data\+Size}{dataSize}}]{\setlength{\rightskip}{0pt plus 5cm}int D\+List\+::data\+Size}\hypertarget{structDList_aac5e5498f12e33cdcf9212802b92ded4}{}\label{structDList_aac5e5498f12e33cdcf9212802b92ded4}
+The size of the data stored in each node. \index{D\+List@{D\+List}!destroy\+Function@{destroy\+Function}}
+\index{destroy\+Function@{destroy\+Function}!D\+List@{D\+List}}
+\subsubsection[{\texorpdfstring{destroy\+Function}{destroyFunction}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Destroy\+Function} D\+List\+::destroy\+Function}\hypertarget{structDList_a039e1b8cd416fceafdb407c1bc51ae4c}{}\label{structDList_a039e1b8cd416fceafdb407c1bc51ae4c}
+A function which destroys the data of a node. \index{D\+List@{D\+List}!end@{end}}
+\index{end@{end}!D\+List@{D\+List}}
+\subsubsection[{\texorpdfstring{end}{end}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+List\+Node}$\ast$ D\+List\+::end}\hypertarget{structDList_ae11ba36cd0e3bdeac4c7189910993864}{}\label{structDList_ae11ba36cd0e3bdeac4c7189910993864}
+The discrete end node of the list. \index{D\+List@{D\+List}!list\+Size@{list\+Size}}
+\index{list\+Size@{list\+Size}!D\+List@{D\+List}}
+\subsubsection[{\texorpdfstring{list\+Size}{listSize}}]{\setlength{\rightskip}{0pt plus 5cm}int D\+List\+::list\+Size}\hypertarget{structDList_a85d2c4c3a5abba8fb8c903571ae72369}{}\label{structDList_a85d2c4c3a5abba8fb8c903571ae72369}
+The number of nodes in the list excluding the begin and end nodes. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dlist_8h}{dlist.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,96 @@
+\hypertarget{comparator_8h}{}\section{comparator.\+h File Reference}
+\label{comparator_8h}\index{comparator.\+h@{comparator.\+h}}
+
+
+An object to compare data. As an example, it can be used to search data in a list.  
+
+
+{\ttfamily \#include \char`\"{}basic.\+h\char`\"{}}\\*
+Include dependency graph for comparator.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{comparator_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{comparator_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structComparator}{Comparator}
+\begin{DoxyCompactList}\small\item\em An object to compare data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef bool($\ast$ \hyperlink{comparator_8h_a7031dbbb6ddea05773826b8d54940494}{Compare\+Function}) (\hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data}, \hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data})\hypertarget{comparator_8h_a7031dbbb6ddea05773826b8d54940494}{}\label{comparator_8h_a7031dbbb6ddea05773826b8d54940494}
+
+\begin{DoxyCompactList}\small\item\em A function comparing data. It returns true, if the data is matching the implemented compare criteria. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structComparator}{Comparator} $\ast$ \hyperlink{comparator_8h_a86ed76bd8254ed436dac0cdc1e895b9f}{comparator\+\_\+new} (\hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data} data, \hyperlink{comparator_8h_a7031dbbb6ddea05773826b8d54940494}{Compare\+Function} compare\+Function)
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a new comparator. \end{DoxyCompactList}\item 
+void \hyperlink{comparator_8h_a71bb7e96b7288c97e84aee0f34e615eb}{comparator\+\_\+destroy} (\hyperlink{structComparator}{Comparator} $\ast$)\hypertarget{comparator_8h_a71bb7e96b7288c97e84aee0f34e615eb}{}\label{comparator_8h_a71bb7e96b7288c97e84aee0f34e615eb}
+
+\begin{DoxyCompactList}\small\item\em Simply frees the comparator. \end{DoxyCompactList}\item 
+bool \hyperlink{comparator_8h_a4034151cc627c0df520968295c64beff}{comparator\+\_\+compare} (\hyperlink{structComparator}{Comparator} $\ast$, \hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data})
+\begin{DoxyCompactList}\small\item\em Compares the stored data with input data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An object to compare data. As an example, it can be used to search data in a list. 
+
+\begin{DoxyAuthor}{Author}
+Philipp Badenhoop 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+4 Jun 2016 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{comparator.\+h@{comparator.\+h}!comparator\+\_\+compare@{comparator\+\_\+compare}}
+\index{comparator\+\_\+compare@{comparator\+\_\+compare}!comparator.\+h@{comparator.\+h}}
+\subsubsection[{\texorpdfstring{comparator\+\_\+compare(\+Comparator $\ast$, Data)}{comparator_compare(Comparator *, Data)}}]{\setlength{\rightskip}{0pt plus 5cm}bool comparator\+\_\+compare (
+\begin{DoxyParamCaption}
+\item[{{\bf Comparator} $\ast$}]{, }
+\item[{{\bf Data}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{comparator_8h_a4034151cc627c0df520968295c64beff}{}\label{comparator_8h_a4034151cc627c0df520968295c64beff}
+
+
+Compares the stored data with input data. 
+
+\begin{DoxyReturn}{Returns}
+true, if the stored and input data match the implemented compare criteria. 
+\end{DoxyReturn}
+\index{comparator.\+h@{comparator.\+h}!comparator\+\_\+new@{comparator\+\_\+new}}
+\index{comparator\+\_\+new@{comparator\+\_\+new}!comparator.\+h@{comparator.\+h}}
+\subsubsection[{\texorpdfstring{comparator\+\_\+new(\+Data data, Compare\+Function compare\+Function)}{comparator_new(Data data, CompareFunction compareFunction)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Comparator}$\ast$ comparator\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{{\bf Data}}]{data, }
+\item[{{\bf Compare\+Function}}]{compare\+Function}
+\end{DoxyParamCaption}
+)}\hypertarget{comparator_8h_a86ed76bd8254ed436dac0cdc1e895b9f}{}\label{comparator_8h_a86ed76bd8254ed436dac0cdc1e895b9f}
+
+
+Allocates and initializes a new comparator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+{\em compare\+Function} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the new comparator. 
+\end{DoxyReturn}

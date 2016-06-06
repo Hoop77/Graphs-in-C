@@ -1,0 +1,97 @@
+\hypertarget{dlistnode_8h}{}\section{dlistnode.\+h File Reference}
+\label{dlistnode_8h}\index{dlistnode.\+h@{dlistnode.\+h}}
+
+
+A node in a generic doubly linked list.  
+
+
+{\ttfamily \#include \char`\"{}basic.\+h\char`\"{}}\\*
+Include dependency graph for dlistnode.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{dlistnode_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{dlistnode_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structDListNode}{D\+List\+Node}
+\begin{DoxyCompactList}\small\item\em The atomic data structure of a generic doubly linked list. (\hyperlink{structDList}{D\+List}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structDListNode}{D\+List\+Node} {\bfseries D\+List\+Node}\hypertarget{dlistnode_8h_a04751e7d05a5785b4961ee93887cb620}{}\label{dlistnode_8h_a04751e7d05a5785b4961ee93887cb620}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structDListNode}{D\+List\+Node} $\ast$ \hyperlink{dlistnode_8h_a2bb091387ca2ee7d29e887586be08baa}{d\+List\+Node\+\_\+new} (\hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data} data, \hyperlink{structDListNode}{D\+List\+Node} $\ast$prev, \hyperlink{structDListNode}{D\+List\+Node} $\ast$next)
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a node. \end{DoxyCompactList}\item 
+void \hyperlink{dlistnode_8h_aead4167ba3baf692d5b816755f420b67}{d\+List\+Node\+\_\+destroy} (\hyperlink{structDListNode}{D\+List\+Node} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Frees the memory of the node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A node in a generic doubly linked list. 
+
+\begin{DoxyAuthor}{Author}
+Philipp Badenhoop 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+4 Jun 2016 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{dlistnode.\+h@{dlistnode.\+h}!d\+List\+Node\+\_\+destroy@{d\+List\+Node\+\_\+destroy}}
+\index{d\+List\+Node\+\_\+destroy@{d\+List\+Node\+\_\+destroy}!dlistnode.\+h@{dlistnode.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Node\+\_\+destroy(\+D\+List\+Node $\ast$node)}{dListNode_destroy(DListNode *node)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Node\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List\+Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistnode_8h_aead4167ba3baf692d5b816755f420b67}{}\label{dlistnode_8h_aead4167ba3baf692d5b816755f420b67}
+
+
+Frees the memory of the node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & The node to be destroyed. \\
+\hline
+\end{DoxyParams}
+\index{dlistnode.\+h@{dlistnode.\+h}!d\+List\+Node\+\_\+new@{d\+List\+Node\+\_\+new}}
+\index{d\+List\+Node\+\_\+new@{d\+List\+Node\+\_\+new}!dlistnode.\+h@{dlistnode.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+Node\+\_\+new(\+Data data, D\+List\+Node $\ast$prev, D\+List\+Node $\ast$next)}{dListNode_new(Data data, DListNode *prev, DListNode *next)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+List\+Node}$\ast$ d\+List\+Node\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{{\bf Data}}]{data, }
+\item[{{\bf D\+List\+Node} $\ast$}]{prev, }
+\item[{{\bf D\+List\+Node} $\ast$}]{next}
+\end{DoxyParamCaption}
+)}\hypertarget{dlistnode_8h_a2bb091387ca2ee7d29e887586be08baa}{}\label{dlistnode_8h_a2bb091387ca2ee7d29e887586be08baa}
+
+
+Allocates and initializes a node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The generic data the node stores. \\
+\hline
+{\em prev} & The previous node. \\
+\hline
+{\em next} & The next node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created node. 
+\end{DoxyReturn}

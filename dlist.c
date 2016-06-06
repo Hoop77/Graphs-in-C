@@ -11,7 +11,7 @@ DList *dList_new( int elementSize, DestroyFunction destroyFunction )
     assert( list != NULL );
 
     // Initialize the list.
-    list->elementSize = elementSize;
+    list->dataSize = elementSize;
     list->listSize = 0;
     list->destroyFunction = destroyFunction;
 

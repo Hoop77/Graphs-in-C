@@ -1,0 +1,171 @@
+\hypertarget{edge_8h}{}\section{edge.\+h File Reference}
+\label{edge_8h}\index{edge.\+h@{edge.\+h}}
+
+
+The edge between vertices in a graph.  
+
+
+{\ttfamily \#include \char`\"{}basic.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dlistiterator.\+h\char`\"{}}\\*
+Include dependency graph for edge.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{edge_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=132pt]{edge_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structEdge}{Edge}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structEdge}{Edge} \hyperlink{edge_8h_a89b91ff6921535d9c8215110f215c2c7}{Edge}\hypertarget{edge_8h_a89b91ff6921535d9c8215110f215c2c7}{}\label{edge_8h_a89b91ff6921535d9c8215110f215c2c7}
+
+\begin{DoxyCompactList}\small\item\em The edge between vertices in a graph. Next to the vertex number of the vertex which it goes to, it also stores an iterator to find its corresponding edge, meaning the edge in a bidirectional graph. This is important because when we remove this edge, we must also remove the corresponding edge and we want that to happen fast! Using this approach, we don\textquotesingle{}t have to search it incrementally in a doubly linked list but rather destroy it immediately. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structEdge}{Edge} $\ast$ \hyperlink{edge_8h_a267730486ea8d66db4c084a5f1049e4a}{edge\+\_\+new} (int to\+Vertex\+Num)
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a new edge. \end{DoxyCompactList}\item 
+void \hyperlink{edge_8h_ac1c4b5e7b84e8d9b6584345825145e0b}{edge\+\_\+destroy} (\hyperlink{structEdge}{Edge} $\ast$edge)
+\begin{DoxyCompactList}\small\item\em Destroys the edge and its iterator to the corresponding edge. \end{DoxyCompactList}\item 
+int \hyperlink{edge_8h_abc918fa1d6e6de0234fd1b6a4f4c0a04}{edge\+\_\+get\+To\+Vertex\+Num} (\hyperlink{structEdge}{Edge} $\ast$edge)
+\item 
+void \hyperlink{edge_8h_a4203862b7878eb9ccb5efa14ca1a4ab2}{edge\+\_\+set\+Corresponding\+Edge\+Iterator} (\hyperlink{structEdge}{Edge} $\ast$edge, \hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$corresponding\+Edge\+Iterator)
+\begin{DoxyCompactList}\small\item\em Sets the iterator to the corresponding edge. \end{DoxyCompactList}\item 
+\hyperlink{structDListIterator}{D\+List\+Iterator} $\ast$ \hyperlink{edge_8h_af3313d551e1401e844a350d1c7a1d16c}{edge\+\_\+get\+Corresponding\+Edge\+Iterator} (\hyperlink{structEdge}{Edge} $\ast$edge)
+\item 
+bool \hyperlink{edge_8h_a4ad4b37d38fc5a32b98cf8d2f079f6aa}{edge\+\_\+equals} (\hyperlink{structEdge}{Edge} $\ast$edge1, \hyperlink{structEdge}{Edge} $\ast$edge2)
+\begin{DoxyCompactList}\small\item\em Compares two edges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The edge between vertices in a graph. 
+
+\begin{DoxyAuthor}{Author}
+Philipp Badenhoop 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6 Jun 2016 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{edge.\+h@{edge.\+h}!edge\+\_\+destroy@{edge\+\_\+destroy}}
+\index{edge\+\_\+destroy@{edge\+\_\+destroy}!edge.\+h@{edge.\+h}}
+\subsubsection[{\texorpdfstring{edge\+\_\+destroy(\+Edge $\ast$edge)}{edge_destroy(Edge *edge)}}]{\setlength{\rightskip}{0pt plus 5cm}void edge\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge} $\ast$}]{edge}
+\end{DoxyParamCaption}
+)}\hypertarget{edge_8h_ac1c4b5e7b84e8d9b6584345825145e0b}{}\label{edge_8h_ac1c4b5e7b84e8d9b6584345825145e0b}
+
+
+Destroys the edge and its iterator to the corresponding edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & \\
+\hline
+\end{DoxyParams}
+\index{edge.\+h@{edge.\+h}!edge\+\_\+equals@{edge\+\_\+equals}}
+\index{edge\+\_\+equals@{edge\+\_\+equals}!edge.\+h@{edge.\+h}}
+\subsubsection[{\texorpdfstring{edge\+\_\+equals(\+Edge $\ast$edge1, Edge $\ast$edge2)}{edge_equals(Edge *edge1, Edge *edge2)}}]{\setlength{\rightskip}{0pt plus 5cm}bool edge\+\_\+equals (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge} $\ast$}]{edge1, }
+\item[{{\bf Edge} $\ast$}]{edge2}
+\end{DoxyParamCaption}
+)}\hypertarget{edge_8h_a4ad4b37d38fc5a32b98cf8d2f079f6aa}{}\label{edge_8h_a4ad4b37d38fc5a32b98cf8d2f079f6aa}
+
+
+Compares two edges. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge1} & \\
+\hline
+{\em edge2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if the vertex number the edges go to are equal. 
+\end{DoxyReturn}
+\index{edge.\+h@{edge.\+h}!edge\+\_\+get\+Corresponding\+Edge\+Iterator@{edge\+\_\+get\+Corresponding\+Edge\+Iterator}}
+\index{edge\+\_\+get\+Corresponding\+Edge\+Iterator@{edge\+\_\+get\+Corresponding\+Edge\+Iterator}!edge.\+h@{edge.\+h}}
+\subsubsection[{\texorpdfstring{edge\+\_\+get\+Corresponding\+Edge\+Iterator(\+Edge $\ast$edge)}{edge_getCorrespondingEdgeIterator(Edge *edge)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+List\+Iterator}$\ast$ edge\+\_\+get\+Corresponding\+Edge\+Iterator (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge} $\ast$}]{edge}
+\end{DoxyParamCaption}
+)}\hypertarget{edge_8h_af3313d551e1401e844a350d1c7a1d16c}{}\label{edge_8h_af3313d551e1401e844a350d1c7a1d16c}
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Gets the iterator to teh corresponding edge. 
+\end{DoxyReturn}
+\index{edge.\+h@{edge.\+h}!edge\+\_\+get\+To\+Vertex\+Num@{edge\+\_\+get\+To\+Vertex\+Num}}
+\index{edge\+\_\+get\+To\+Vertex\+Num@{edge\+\_\+get\+To\+Vertex\+Num}!edge.\+h@{edge.\+h}}
+\subsubsection[{\texorpdfstring{edge\+\_\+get\+To\+Vertex\+Num(\+Edge $\ast$edge)}{edge_getToVertexNum(Edge *edge)}}]{\setlength{\rightskip}{0pt plus 5cm}int edge\+\_\+get\+To\+Vertex\+Num (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge} $\ast$}]{edge}
+\end{DoxyParamCaption}
+)}\hypertarget{edge_8h_abc918fa1d6e6de0234fd1b6a4f4c0a04}{}\label{edge_8h_abc918fa1d6e6de0234fd1b6a4f4c0a04}
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vertex number this edge goes to. 
+\end{DoxyReturn}
+\index{edge.\+h@{edge.\+h}!edge\+\_\+new@{edge\+\_\+new}}
+\index{edge\+\_\+new@{edge\+\_\+new}!edge.\+h@{edge.\+h}}
+\subsubsection[{\texorpdfstring{edge\+\_\+new(int to\+Vertex\+Num)}{edge_new(int toVertexNum)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Edge}$\ast$ edge\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{int}]{to\+Vertex\+Num}
+\end{DoxyParamCaption}
+)}\hypertarget{edge_8h_a267730486ea8d66db4c084a5f1049e4a}{}\label{edge_8h_a267730486ea8d66db4c084a5f1049e4a}
+
+
+Allocates and initializes a new edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Vertex\+Num} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the new edge. 
+\end{DoxyReturn}
+\index{edge.\+h@{edge.\+h}!edge\+\_\+set\+Corresponding\+Edge\+Iterator@{edge\+\_\+set\+Corresponding\+Edge\+Iterator}}
+\index{edge\+\_\+set\+Corresponding\+Edge\+Iterator@{edge\+\_\+set\+Corresponding\+Edge\+Iterator}!edge.\+h@{edge.\+h}}
+\subsubsection[{\texorpdfstring{edge\+\_\+set\+Corresponding\+Edge\+Iterator(\+Edge $\ast$edge, D\+List\+Iterator $\ast$corresponding\+Edge\+Iterator)}{edge_setCorrespondingEdgeIterator(Edge *edge, DListIterator *correspondingEdgeIterator)}}]{\setlength{\rightskip}{0pt plus 5cm}void edge\+\_\+set\+Corresponding\+Edge\+Iterator (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge} $\ast$}]{edge, }
+\item[{{\bf D\+List\+Iterator} $\ast$}]{corresponding\+Edge\+Iterator}
+\end{DoxyParamCaption}
+)}\hypertarget{edge_8h_a4203862b7878eb9ccb5efa14ca1a4ab2}{}\label{edge_8h_a4203862b7878eb9ccb5efa14ca1a4ab2}
+
+
+Sets the iterator to the corresponding edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & \\
+\hline
+{\em corresponding\+Edge\+Iterator} & \\
+\hline
+\end{DoxyParams}

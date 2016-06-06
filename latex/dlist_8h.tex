@@ -1,0 +1,188 @@
+\hypertarget{dlist_8h}{}\section{dlist.\+h File Reference}
+\label{dlist_8h}\index{dlist.\+h@{dlist.\+h}}
+
+
+A generic doubly linked list.  
+
+
+{\ttfamily \#include \char`\"{}basic.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dlistnode.\+h\char`\"{}}\\*
+Include dependency graph for dlist.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{dlist_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{dlist_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structDList}{D\+List}
+\begin{DoxyCompactList}\small\item\em The data structure of a generic doubly linked list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{dlist_8h_a2206207e78cb6335a8f41ad6cf76b55c}{Destroy\+Function}) (\hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data})\hypertarget{dlist_8h_a2206207e78cb6335a8f41ad6cf76b55c}{}\label{dlist_8h_a2206207e78cb6335a8f41ad6cf76b55c}
+
+\begin{DoxyCompactList}\small\item\em A pointer to a function which destroys the generic data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structDList}{D\+List} $\ast$ \hyperlink{dlist_8h_a4345525d397ca8b568beb853c4486f51}{d\+List\+\_\+new} (int element\+Size, \hyperlink{dlist_8h_a2206207e78cb6335a8f41ad6cf76b55c}{Destroy\+Function} destroy\+Function)
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a new list. It also creates the discrete begin and end node. \end{DoxyCompactList}\item 
+void \hyperlink{dlist_8h_a9c3f8ad5e49b5c2379cddc20823dbad0}{d\+List\+\_\+destroy} (\hyperlink{structDList}{D\+List} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Simply frees the pointer to the list. \end{DoxyCompactList}\item 
+void \hyperlink{dlist_8h_a60eeb1c2d0a580852c091c6c8cb5d3fd}{d\+List\+\_\+destroy\+All} (\hyperlink{structDList}{D\+List} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Completely destroys and frees the list, including its nodes and their data. \end{DoxyCompactList}\item 
+int \hyperlink{dlist_8h_a295d8e7a2055925c35f9ee530e387cc5}{d\+List\+\_\+get\+Size} (\hyperlink{structDList}{D\+List} $\ast$list)
+\item 
+bool \hyperlink{dlist_8h_af16b1e6b4d0d278ecf6baf8e57ee41bc}{d\+List\+\_\+is\+Empty} (\hyperlink{structDList}{D\+List} $\ast$list)
+\item 
+void \hyperlink{dlist_8h_ab695f8f645ad8da47614aa8cdab9ec16}{d\+List\+\_\+append} (\hyperlink{structDList}{D\+List} $\ast$list, \hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data} data)
+\begin{DoxyCompactList}\small\item\em Inserts a new node whichs stores given data after the last node of the list. \end{DoxyCompactList}\item 
+\hyperlink{basic_8h_a5f051eaa796886555205c751e6d530f4}{Data} \hyperlink{dlist_8h_ab79c5b74e3e2d7d589f9b4c00d7e7754}{d\+List\+\_\+get} (\hyperlink{structDList}{D\+List} $\ast$list, int i)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A generic doubly linked list. 
+
+\begin{DoxyAuthor}{Author}
+Philipp Badenhoop 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+4 Jun 2016 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{dlist.\+h@{dlist.\+h}!d\+List\+\_\+append@{d\+List\+\_\+append}}
+\index{d\+List\+\_\+append@{d\+List\+\_\+append}!dlist.\+h@{dlist.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+\_\+append(\+D\+List $\ast$list, Data data)}{dList_append(DList *list, Data data)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+\_\+append (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List} $\ast$}]{list, }
+\item[{{\bf Data}}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{dlist_8h_ab695f8f645ad8da47614aa8cdab9ec16}{}\label{dlist_8h_ab695f8f645ad8da47614aa8cdab9ec16}
+
+
+Inserts a new node whichs stores given data after the last node of the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em data} & The data which the new node will be storing. \\
+\hline
+\end{DoxyParams}
+\index{dlist.\+h@{dlist.\+h}!d\+List\+\_\+destroy@{d\+List\+\_\+destroy}}
+\index{d\+List\+\_\+destroy@{d\+List\+\_\+destroy}!dlist.\+h@{dlist.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+\_\+destroy(\+D\+List $\ast$list)}{dList_destroy(DList *list)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\hypertarget{dlist_8h_a9c3f8ad5e49b5c2379cddc20823dbad0}{}\label{dlist_8h_a9c3f8ad5e49b5c2379cddc20823dbad0}
+
+
+Simply frees the pointer to the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\index{dlist.\+h@{dlist.\+h}!d\+List\+\_\+destroy\+All@{d\+List\+\_\+destroy\+All}}
+\index{d\+List\+\_\+destroy\+All@{d\+List\+\_\+destroy\+All}!dlist.\+h@{dlist.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+\_\+destroy\+All(\+D\+List $\ast$list)}{dList_destroyAll(DList *list)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+\_\+destroy\+All (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\hypertarget{dlist_8h_a60eeb1c2d0a580852c091c6c8cb5d3fd}{}\label{dlist_8h_a60eeb1c2d0a580852c091c6c8cb5d3fd}
+
+
+Completely destroys and frees the list, including its nodes and their data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\index{dlist.\+h@{dlist.\+h}!d\+List\+\_\+get@{d\+List\+\_\+get}}
+\index{d\+List\+\_\+get@{d\+List\+\_\+get}!dlist.\+h@{dlist.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+\_\+get(\+D\+List $\ast$list, int i)}{dList_get(DList *list, int i)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} d\+List\+\_\+get (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List} $\ast$}]{list, }
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{dlist_8h_ab79c5b74e3e2d7d589f9b4c00d7e7754}{}\label{dlist_8h_ab79c5b74e3e2d7d589f9b4c00d7e7754}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em i} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data of the i-\/th node of the list (start counting at the first node). 
+\end{DoxyReturn}
+\index{dlist.\+h@{dlist.\+h}!d\+List\+\_\+get\+Size@{d\+List\+\_\+get\+Size}}
+\index{d\+List\+\_\+get\+Size@{d\+List\+\_\+get\+Size}!dlist.\+h@{dlist.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+\_\+get\+Size(\+D\+List $\ast$list)}{dList_getSize(DList *list)}}]{\setlength{\rightskip}{0pt plus 5cm}int d\+List\+\_\+get\+Size (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\hypertarget{dlist_8h_a295d8e7a2055925c35f9ee530e387cc5}{}\label{dlist_8h_a295d8e7a2055925c35f9ee530e387cc5}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of nodes in the list excluding the discrete begin and end nodes. 
+\end{DoxyReturn}
+\index{dlist.\+h@{dlist.\+h}!d\+List\+\_\+is\+Empty@{d\+List\+\_\+is\+Empty}}
+\index{d\+List\+\_\+is\+Empty@{d\+List\+\_\+is\+Empty}!dlist.\+h@{dlist.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+\_\+is\+Empty(\+D\+List $\ast$list)}{dList_isEmpty(DList *list)}}]{\setlength{\rightskip}{0pt plus 5cm}bool d\+List\+\_\+is\+Empty (
+\begin{DoxyParamCaption}
+\item[{{\bf D\+List} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\hypertarget{dlist_8h_af16b1e6b4d0d278ecf6baf8e57ee41bc}{}\label{dlist_8h_af16b1e6b4d0d278ecf6baf8e57ee41bc}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if there\textquotesingle{}re no nodes in the list except the discrete begin and end nodes. 
+\end{DoxyReturn}
+\index{dlist.\+h@{dlist.\+h}!d\+List\+\_\+new@{d\+List\+\_\+new}}
+\index{d\+List\+\_\+new@{d\+List\+\_\+new}!dlist.\+h@{dlist.\+h}}
+\subsubsection[{\texorpdfstring{d\+List\+\_\+new(int element\+Size, Destroy\+Function destroy\+Function)}{dList_new(int elementSize, DestroyFunction destroyFunction)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+List}$\ast$ d\+List\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{int}]{element\+Size, }
+\item[{{\bf Destroy\+Function}}]{destroy\+Function}
+\end{DoxyParamCaption}
+)}\hypertarget{dlist_8h_a4345525d397ca8b568beb853c4486f51}{}\label{dlist_8h_a4345525d397ca8b568beb853c4486f51}
+
+
+Allocates and initializes a new list. It also creates the discrete begin and end node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element\+Size} & The size of the data stored in each node. \\
+\hline
+{\em Destroy\+Function} & A function which destroys the data of a node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created list. 
+\end{DoxyReturn}
