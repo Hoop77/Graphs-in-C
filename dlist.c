@@ -1,6 +1,18 @@
 #include "dlist.h"
 
 
+inline int dList_getSize( DList *list )
+{
+    return list->listSize;
+}
+
+
+inline bool dList_isEmpty( DList *list )
+{
+    return list->listSize == 0;
+}
+
+
 DList *dList_new( int elementSize, DestroyFunction destroyFunction )
 {
     DListNode *begin;
@@ -58,18 +70,6 @@ void dList_destroyAll( DList *list )
 }
 
 
-int dList_getSize( DList *list )
-{
-    return list->listSize;
-}
-
-
-bool dList_isEmpty( DList *list )
-{
-    return ( list->listSize == 0 );
-}
-
-
 void dList_append( DList *list, Data data )
 {
     // We will insert the data between the list's end node and its previous node.
@@ -88,6 +88,9 @@ void dList_append( DList *list, Data data )
 
 Data dList_get( DList *list, int i )
 {
+    assert( i < list->listSize );
+    assert( list->listSize > 0 );
+
     DListNode *node = list->begin->next;
     // Due to performance, we don't mind walking off the end element of the list.
     while( i > 0 )

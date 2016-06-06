@@ -52,13 +52,6 @@ void edge_destroy( Edge *edge );
 
 
 /**
- * @brief Frees the pointer to the edge and destroys the iterator to the corresponding edge.
- * @param edge
- */
-void edge_destroyAll( Edge *edge );
-
-
-/**
  * @param edge
  * @return The vertex number this edge goes to.
  */

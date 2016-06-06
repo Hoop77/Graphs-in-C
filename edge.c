@@ -20,17 +20,6 @@ void edge_destroy( Edge *edge )
 }
 
 
-void edge_destroyAll( Edge *edge )
-{
-    assert( edge != NULL );
-    dListIterator_destroy( edge->correspondingEdgeIterator );
-
-    free( edge );
-
-    return;
-}
-
-
 int edge_getToVertexNum( Edge *edge )
 {
     return edge->toVertexNum;

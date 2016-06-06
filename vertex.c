@@ -6,7 +6,7 @@ Vertex *vertex_new( void )
     Vertex *vertex = (Vertex *) malloc( sizeof( Vertex ));
     assert( vertex != NULL );
 
-    vertex->edges = dList_new( sizeof( Edge ), (DestroyFunction) edge_destroyAll );
+    vertex->edges = dList_new( sizeof( Edge ), (DestroyFunction) edge_destroy );
 
     return vertex;
 }

@@ -375,11 +375,11 @@ EulerianCycleResult findEulerianCycle( Graph *graph, GraphInformation graphInfo 
     //
     // First create an iterator to go through the elements of the extending path.
     DList *pathElements = path_getElements( path );
-    DListIterator *pathIterator = dListIterator_new( pathElements );
-    dListIterator_toFirst( pathIterator );
+    DListIterator *pathIterator = dListIterator_getIteratorFromList( pathElements );
+    dListIterator_toFirst( pathIterator, pathElements );
 
     // Until we reached the end of the path.
-    while( !dListIterator_isAtEnd( pathIterator ))
+    while( !dListIterator_isAtEnd( pathIterator, pathElements ))
     {
         PathElement *currElement = (PathElement *) dListIterator_get( pathIterator );
 
@@ -394,7 +394,7 @@ EulerianCycleResult findEulerianCycle( Graph *graph, GraphInformation graphInfo 
             Path *subCircle = extractSubCircle( graph, mergingVertexNum );
 
             // Merge the current path with the sub-circle-path.
-            dListIterator_merge( pathIterator, path_getElements( subCircle ));
+            dListIterator_merge( &pathIterator, pathElements, path_getElements( subCircle ));
 
             // Since we have merged the paths, we can get rid of the sub-circle instance.
             path_destroy( subCircle );
@@ -414,9 +414,6 @@ EulerianCycleResult findEulerianCycle( Graph *graph, GraphInformation graphInfo 
         result.exists = false;
         result.eulerianCycle = NULL;
     }
-
-    // Clean up.
-    dListIterator_destroy( pathIterator );
 
     return result;
 }
@@ -463,17 +460,15 @@ Path *extractSubCircle( Graph *graph, int startVertexNum )
 
 void printEulerianCycle( Path *eulerianCycle )
 {
-    DListIterator *pathIterator = dListIterator_new( path_getElements( eulerianCycle ));
+    DList *pathElements = path_getElements( eulerianCycle );
+    DListIterator *pathIterator = dListIterator_getIteratorFromList( pathElements );
 
-    dList_foreach( pathIterator )
+    dList_foreach( pathIterator, pathElements )
     {
         PathElement *currElement = (PathElement *) dListIterator_get( pathIterator );
 
         printf( "%d ", currElement->vertexNum );
     }
-
-    // Clean up.
-    dListIterator_destroy( pathIterator );
 
     return;
 }
@@ -484,16 +479,17 @@ void printEulerianPath( Path *eulerianCylce, int addedVertexNum )
     // Since we got an eulerian cyclce the first and the last elements are equal.
     // However this cannot occur on a graph which has 2 vertices with uneven degree.
     // So we will simply remove the last element of the path.
-    DListIterator *pathIterator = dListIterator_new( path_getElements( eulerianCylce ));
-    dListIterator_toLast( pathIterator );
-    dListIterator_removeAndDestroy( pathIterator );
+    DList *pathElements = path_getElements( eulerianCylce );
+    DListIterator *pathIterator = dListIterator_getIteratorFromList( pathElements );
+    dListIterator_toLast( pathIterator, pathElements );
+    dListIterator_destroy( pathIterator, pathElements );
 
     // We have to find the added vertex element in the path.
     PathElement searchElement = { addedVertexNum };
     Comparator *comparator = comparator_new( &searchElement, (CompareFunction) pathElement_equals );
 
-    dListIterator_toFirst( pathIterator );
-    PathElement *addedVertexElement = (PathElement *) dListIterator_search( pathIterator, comparator );
+    dListIterator_toFirst( pathIterator, pathElements );
+    PathElement *addedVertexElement = (PathElement *) dListIterator_search( &pathIterator, pathElements, comparator );
     assert( addedVertexElement != NULL );
 
     // Now we are going to print out the path.
@@ -502,8 +498,8 @@ void printEulerianPath( Path *eulerianCylce, int addedVertexNum )
         dListIterator_increment( pathIterator );
 
         // If we're at the end of the path, we jump back to the beginning.
-        if( dListIterator_isAtEnd( pathIterator ))
-            dListIterator_toFirst( pathIterator );
+        if( dListIterator_isAtEnd( pathIterator, pathElements ))
+            dListIterator_toFirst( pathIterator, pathElements );
 
         PathElement *currElement = (PathElement *) dListIterator_get( pathIterator );
 
@@ -516,7 +512,6 @@ void printEulerianPath( Path *eulerianCylce, int addedVertexNum )
 
     // Clean up.
     comparator_destroy( comparator );
-    dListIterator_destroy( pathIterator );
 
     return;
 }

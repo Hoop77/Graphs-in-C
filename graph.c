@@ -108,16 +108,16 @@ void graph_addEdgePair( Graph *graph, int vertexNum1, int vertexNum2 )
     dList_append( edges1, edge1 );
 
     // Create an iterator which stands at the appended edge.
-    DListIterator *iterator1 = dListIterator_new( edges1 );
-    dListIterator_toLast( iterator1 );
+    DListIterator *iterator1 = dListIterator_getIteratorFromList( edges1 );
+    dListIterator_toLast( iterator1, edges1 );
 
     // Create an edge which points to vertex 1 and append it to the list.
     Edge *edge2 = edge_new( vertexNum1 );
     dList_append( edges2, edge2 );
 
     // Create an iterator which stays at the appended edge.
-    DListIterator *iterator2 = dListIterator_new( edges2 );
-    dListIterator_toLast( iterator2 );
+    DListIterator *iterator2 = dListIterator_getIteratorFromList( edges2 );
+    dListIterator_toLast( iterator2, edges2 );
 
     // Set up the corresponding edge with the iterators.
     edge_setCorrespondingEdgeIterator( edge1, iterator2 );
@@ -129,37 +129,39 @@ void graph_addEdgePair( Graph *graph, int vertexNum1, int vertexNum2 )
 
 bool graph_removeEdgePair( Graph *graph, int vertexNum1, int vertexNum2 )
 {
-    // Get the vertex 1 which stores the list of edge.
+    // Get the vertices which store the lists of edges.
     Vertex *vertex1 = graph->vertices[ vertexNum1 ];
+    Vertex *vertex2 = graph->vertices[ vertexNum2 ];
+    DList *edges1 = vertex_getEdges( vertex1 );
+    DList *edges2 = vertex_getEdges( vertex2 );
 
     if( !vertex_hasEdges( vertex1 ))
         return false;
 
     // Create an iterator which will get us the edge going from vertex 1 to vertex 2.
-    DListIterator *edgeIterator1 = dListIterator_new( vertex_getEdges( vertex1 ));
-    dListIterator_toFirst( edgeIterator1 );
+    DListIterator *edgeIterator1 = dListIterator_getIteratorFromList( edges1 );
+    dListIterator_toFirst( edgeIterator1, edges1 );
 
     // Prepare a comparator for searching.
     Edge searchEdge = { vertexNum2, NULL };
     Comparator *comparator = comparator_new( &searchEdge, (CompareFunction) edge_equals );
 
     // Search the edge.
-    Edge *edge1 = (Edge *) dListIterator_search( edgeIterator1, comparator );
+    Edge *edge1 = (Edge *) dListIterator_search( &edgeIterator1, edges1, comparator );
 
     // If we haven't found the edge, we stop here.
     if( edge1 == NULL )
         return false;
 
-    // First remove the edge going from vertex 2 to vertex 1.
+    // Now that we have edge 1, we get edge 2 immediately with the corresponding edge iterator.
     DListIterator *edgeIterator2 = edge_getCorrespondingEdgeIterator( edge1 );
-    dListIterator_removeAndDestroy( edgeIterator2 );
 
-    // And finally remove the edge going from vertex 1 to vertex 2.
-    dListIterator_removeAndDestroy( edgeIterator1 );
+    // Remove the edges.
+    dListIterator_destroy( edgeIterator1, edges1 );
+    dListIterator_destroy( edgeIterator2, edges2 );
 
     // Clean up.
     comparator_destroy( comparator );
-    dListIterator_destroy( edgeIterator1 );
 
     return true;
 }
