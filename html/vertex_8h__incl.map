@@ -1,0 +1,8 @@
+<map id="vertex.h" name="vertex.h">
+<area shape="rect" id="node2" href="$basic_8h.html" title="Just some arbitrary definitions for the library. " alt="" coords="153,379,217,405"/>
+<area shape="rect" id="node6" href="$dlist_8h.html" title="A generic doubly linked list. " alt="" coords="267,229,325,256"/>
+<area shape="rect" id="node8" href="$edge_8h.html" title="The edge between vertices in a graph. " alt="" coords="101,80,163,107"/>
+<area shape="rect" id="node7" href="$dlistnode_8h.html" title="A node in a generic doubly linked list. " alt="" coords="317,304,403,331"/>
+<area shape="rect" id="node9" href="$dlistiterator_8h.html" title="A bidirectional iterator for a doubly linked list. " alt="" coords="143,155,241,181"/>
+<area shape="rect" id="node10" href="$comparator_8h.html" title="An object to compare data. As an example, it can be used to search data in a list. " alt="" coords="93,304,192,331"/>
+</map>

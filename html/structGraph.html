@@ -88,12 +88,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Graph Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="graph_8h_source.html">graph.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Graph:</div>
 <div class="dyncontent">
 <div class="center"><img src="structGraph__coll__graph.png" border="0" usemap="#Graph_coll__map" alt="Collaboration graph"/></div>
 <map name="Graph_coll__map" id="Graph_coll__map">
-<area shape="rect" id="node2" href="structVertex.html" title="Vertex" alt="" coords="17,201,77,228"/>
+<area shape="rect" id="node2" href="structVertex.html" title="A vertex in a graph is just a container of a doubly linked list of edges. " alt="" coords="17,201,77,228"/>
 <area shape="rect" id="node3" href="structDList.html" title="The data structure of a generic doubly linked list. " alt="" coords="21,112,74,139"/>
 <area shape="rect" id="node4" href="structDListNode.html" title="The atomic data structure of a generic doubly linked list. (DList) " alt="" coords="5,7,89,33"/>
 </map>
@@ -101,13 +103,40 @@ Collaboration diagram for Graph:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a78b1f05b8d7d75efa2da1688f7ab4e85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78b1f05b8d7d75efa2da1688f7ab4e85"></a>
-<a class="el" href="structVertex.html">Vertex</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>vertices</b></td></tr>
+<tr class="memitem:a78b1f05b8d7d75efa2da1688f7ab4e85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVertex.html">Vertex</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGraph.html#a78b1f05b8d7d75efa2da1688f7ab4e85">vertices</a></td></tr>
 <tr class="separator:a78b1f05b8d7d75efa2da1688f7ab4e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa61a470b538b8c5836ae3f3e6a4dc438"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa61a470b538b8c5836ae3f3e6a4dc438"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>vertexCount</b></td></tr>
+<tr class="memitem:aa61a470b538b8c5836ae3f3e6a4dc438"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGraph.html#aa61a470b538b8c5836ae3f3e6a4dc438">vertexCount</a></td></tr>
 <tr class="separator:aa61a470b538b8c5836ae3f3e6a4dc438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The graph contains a onedimensional array of vertices and each vertex stores a doubly linked list of edges. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="aa61a470b538b8c5836ae3f3e6a4dc438"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Graph::vertexCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The number of vertices in the vertex array. </p>
+
+</div>
+</div>
+<a class="anchor" id="a78b1f05b8d7d75efa2da1688f7ab4e85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVertex.html">Vertex</a>** Graph::vertices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A onedimensional array of pointers to vertex-objects. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="graph_8h_source.html">graph.h</a></li>
 </ul>

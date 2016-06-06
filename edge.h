@@ -45,10 +45,17 @@ Edge *edge_new( int toVertexNum );
 
 
 /**
- * @brief Destroys the edge and its iterator to the corresponding edge.
+ * @brief Simply frees the pointer to the edge.
  * @param edge
  */
 void edge_destroy( Edge *edge );
+
+
+/**
+ * @brief Frees the pointer to the edge and destroys the iterator to the corresponding edge.
+ * @param edge
+ */
+void edge_destroyAll( Edge *edge );
 
 
 /**

@@ -1,0 +1,135 @@
+\hypertarget{vertex_8h}{}\section{vertex.\+h File Reference}
+\label{vertex_8h}\index{vertex.\+h@{vertex.\+h}}
+
+
+A vertex in a graph.  
+
+
+{\ttfamily \#include \char`\"{}basic.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dlist.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}edge.\+h\char`\"{}}\\*
+Include dependency graph for vertex.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vertex_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=132pt]{vertex_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structVertex}{Vertex}
+\begin{DoxyCompactList}\small\item\em A vertex in a graph is just a container of a doubly linked list of edges. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structVertex}{Vertex} $\ast$ \hyperlink{vertex_8h_a2b0e1cc520866fea2533679b08ef2232}{vertex\+\_\+new} (void)
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a new vertex. \end{DoxyCompactList}\item 
+void \hyperlink{vertex_8h_a4b22b5408ae9b8c8b8f406709d2cd322}{vertex\+\_\+destroy} (\hyperlink{structVertex}{Vertex} $\ast$vertex)
+\begin{DoxyCompactList}\small\item\em Simply frees the pointer to the vertex. \end{DoxyCompactList}\item 
+void \hyperlink{vertex_8h_ac5190248906c628d881fedc69b8a5f12}{vertex\+\_\+destroy\+All} (\hyperlink{structVertex}{Vertex} $\ast$vertex)
+\begin{DoxyCompactList}\small\item\em Frees the pointer to the vertex and destroys the complete list of edges. \end{DoxyCompactList}\item 
+\hyperlink{structDList}{D\+List} $\ast$ \hyperlink{vertex_8h_aa5b93b2ca706759a4e771fa0b5b06d41}{vertex\+\_\+get\+Edges} (\hyperlink{structVertex}{Vertex} $\ast$vertex)
+\item 
+int \hyperlink{vertex_8h_adcb3e5d01415ff55fcaa67a00f29389c}{vertex\+\_\+get\+Degree} (\hyperlink{structVertex}{Vertex} $\ast$vertex)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A vertex in a graph. 
+
+\begin{DoxyAuthor}{Author}
+Philipp Badenhoop 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6 Jun 2016 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{vertex.\+h@{vertex.\+h}!vertex\+\_\+destroy@{vertex\+\_\+destroy}}
+\index{vertex\+\_\+destroy@{vertex\+\_\+destroy}!vertex.\+h@{vertex.\+h}}
+\subsubsection[{\texorpdfstring{vertex\+\_\+destroy(\+Vertex $\ast$vertex)}{vertex_destroy(Vertex *vertex)}}]{\setlength{\rightskip}{0pt plus 5cm}void vertex\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\hypertarget{vertex_8h_a4b22b5408ae9b8c8b8f406709d2cd322}{}\label{vertex_8h_a4b22b5408ae9b8c8b8f406709d2cd322}
+
+
+Simply frees the pointer to the vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+This does not destroy the list of edges! 
+\end{DoxyAttention}
+\index{vertex.\+h@{vertex.\+h}!vertex\+\_\+destroy\+All@{vertex\+\_\+destroy\+All}}
+\index{vertex\+\_\+destroy\+All@{vertex\+\_\+destroy\+All}!vertex.\+h@{vertex.\+h}}
+\subsubsection[{\texorpdfstring{vertex\+\_\+destroy\+All(\+Vertex $\ast$vertex)}{vertex_destroyAll(Vertex *vertex)}}]{\setlength{\rightskip}{0pt plus 5cm}void vertex\+\_\+destroy\+All (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\hypertarget{vertex_8h_ac5190248906c628d881fedc69b8a5f12}{}\label{vertex_8h_ac5190248906c628d881fedc69b8a5f12}
+
+
+Frees the pointer to the vertex and destroys the complete list of edges. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\index{vertex.\+h@{vertex.\+h}!vertex\+\_\+get\+Degree@{vertex\+\_\+get\+Degree}}
+\index{vertex\+\_\+get\+Degree@{vertex\+\_\+get\+Degree}!vertex.\+h@{vertex.\+h}}
+\subsubsection[{\texorpdfstring{vertex\+\_\+get\+Degree(\+Vertex $\ast$vertex)}{vertex_getDegree(Vertex *vertex)}}]{\setlength{\rightskip}{0pt plus 5cm}int vertex\+\_\+get\+Degree (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\hypertarget{vertex_8h_adcb3e5d01415ff55fcaa67a00f29389c}{}\label{vertex_8h_adcb3e5d01415ff55fcaa67a00f29389c}
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Get the number of edges which go out of the vertex. 
+\end{DoxyReturn}
+\index{vertex.\+h@{vertex.\+h}!vertex\+\_\+get\+Edges@{vertex\+\_\+get\+Edges}}
+\index{vertex\+\_\+get\+Edges@{vertex\+\_\+get\+Edges}!vertex.\+h@{vertex.\+h}}
+\subsubsection[{\texorpdfstring{vertex\+\_\+get\+Edges(\+Vertex $\ast$vertex)}{vertex_getEdges(Vertex *vertex)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\+List}$\ast$ vertex\+\_\+get\+Edges (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex} $\ast$}]{vertex}
+\end{DoxyParamCaption}
+)}\hypertarget{vertex_8h_aa5b93b2ca706759a4e771fa0b5b06d41}{}\label{vertex_8h_aa5b93b2ca706759a4e771fa0b5b06d41}
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Get the list of edges. 
+\end{DoxyReturn}
+\index{vertex.\+h@{vertex.\+h}!vertex\+\_\+new@{vertex\+\_\+new}}
+\index{vertex\+\_\+new@{vertex\+\_\+new}!vertex.\+h@{vertex.\+h}}
+\subsubsection[{\texorpdfstring{vertex\+\_\+new(void)}{vertex_new(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vertex}$\ast$ vertex\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{vertex_8h_a2b0e1cc520866fea2533679b08ef2232}{}\label{vertex_8h_a2b0e1cc520866fea2533679b08ef2232}
+
+
+Allocates and initializes a new vertex. 
+
+\begin{DoxyReturn}{Returns}
+The pointer to the new vertex. 
+\end{DoxyReturn}

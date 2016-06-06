@@ -8,6 +8,8 @@ var searchData=
   ['edge_5fgettovertexnum',['edge_getToVertexNum',['../edge_8h.html#abc918fa1d6e6de0234fd1b6a4f4c0a04',1,'edge.c']]],
   ['edge_5fnew',['edge_new',['../edge_8h.html#a267730486ea8d66db4c084a5f1049e4a',1,'edge.c']]],
   ['edge_5fsetcorrespondingedgeiterator',['edge_setCorrespondingEdgeIterator',['../edge_8h.html#a4203862b7878eb9ccb5efa14ca1a4ab2',1,'edge.c']]],
+  ['edges',['edges',['../structVertex.html#a1d47f7cbd5679ba2c22c556b39f994a8',1,'Vertex']]],
+  ['elements',['elements',['../structPath.html#a9767e852a01fe98f15198cc23538aad0',1,'Path']]],
   ['end',['end',['../structDList.html#ae11ba36cd0e3bdeac4c7189910993864',1,'DList']]],
   ['euleriancycleresult',['EulerianCycleResult',['../structEulerianCycleResult.html',1,'']]]
 ];

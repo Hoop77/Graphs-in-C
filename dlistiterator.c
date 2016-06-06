@@ -24,6 +24,12 @@ void dListIterator_destroy( DListIterator *iterator )
 }
 
 
+DList *dListIterator_getList( DListIterator *iterator )
+{
+    return iterator->list;
+}
+
+
 void dListIterator_increment( DListIterator *iterator )
 {
     assert( iterator->current );
@@ -121,6 +127,19 @@ void dListIterator_removeAndDestroy( DListIterator *iterator )
     assert( iterator->list->destroyFunction );
 
     iterator->list->destroyFunction( iterator->current->data );
+
+    dListIterator_remove( iterator );
+
+    return;
+}
+
+
+void dListIterator_removeAndDestroyWith( DListIterator *iterator, DestroyFunction destroyFunction )
+{
+    assert( iterator->current );
+    assert( iterator->list->destroyFunction );
+
+    destroyFunction( iterator->current->data );
 
     dListIterator_remove( iterator );
 

@@ -41,6 +41,11 @@
 
 /**
  * @brief A simple bidirectional iterator.
+ *
+ * @attention You <b>must</b> prevent the iterator from operating on an empty list!
+ * The iterator's current node is initialized with NULL. This means when you start to use it,
+ * please set the iterator to a valid node in the list by using 'dListIterator_toFirst()' or
+ * 'dListIterator_toLast()' for example!
  */
 typedef struct
 {
@@ -58,6 +63,10 @@ extern "C" {
  * @brief Allocates and initializes a new iterator.
  * @param list
  * @return The pointer to the new iterator.
+ *
+ * @attention The iterator's current node is initialized with NULL. This means when you start to use it,
+ * please set the iterator to a valid node in the list by using 'dListIterator_toFirst()' or
+ * 'dListIterator_toLast()' for example!
  */
 DListIterator *dListIterator_new( DList *list );
 
@@ -67,6 +76,13 @@ DListIterator *dListIterator_new( DList *list );
  * @param iterator
  */
 void dListIterator_destroy( DListIterator *iterator );
+
+
+/**
+ * @param iterator
+ * @return The list the iterator operates on.
+ */
+DList *dListIterator_getList( DListIterator *iterator );
 
 
 /**
@@ -131,6 +147,15 @@ void dListIterator_remove( DListIterator *iterator );
  * @param iterator
  */
 void dListIterator_removeAndDestroy( DListIterator *iterator );
+
+
+/**
+ * @brief Destroys the current node, reconnects the nodes and
+ * also uses the custom destroy function to destroy the data of the current node.
+ * @param iterator
+ * @param destroyFunction
+ */
+void dListIterator_removeAndDestroyWith( DListIterator *iterator, DestroyFunction destroyFunction );
 
 
 /**

@@ -6,7 +6,7 @@ Vertex *vertex_new( void )
     Vertex *vertex = (Vertex *) malloc( sizeof( Vertex ));
     assert( vertex != NULL );
 
-    vertex->edges = dList_new( sizeof( Edge ), (DestroyFunction)edge_destroy );
+    vertex->edges = dList_new( sizeof( Edge ), (DestroyFunction) edge_destroyAll );
 
     return vertex;
 }
@@ -36,4 +36,10 @@ DList *vertex_getEdges( Vertex *vertex )
 int vertex_getDegree( Vertex *vertex )
 {
     return dList_getSize( vertex->edges );
+}
+
+
+bool vertex_hasEdges( Vertex *vertex )
+{
+    return !dList_isEmpty( vertex->edges );
 }

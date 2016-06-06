@@ -8,16 +8,14 @@ A bidirectional iterator for a doubly linked list.
 {\ttfamily \#include \char`\"{}basic.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}dlist.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}comparator.\+h\char`\"{}}\\*
-Include dependency graph for dlistiterator.\+h\+:
-\nopagebreak
+Include dependency graph for dlistiterator.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=328pt]{dlistiterator_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -291,8 +289,11 @@ Allocates and initializes a new iterator.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The pointer to the new iterator. 
+The pointer to the new iterator.
 \end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+The iterator\textquotesingle{}s current node is initialized with N\+U\+LL. This means when you start to use it, please set the iterator to a valid node in the list by using \textquotesingle{}\hyperlink{dlistiterator_8h_afde985be14b96579309b54eed487edd6}{d\+List\+Iterator\+\_\+to\+First()}\textquotesingle{} or \textquotesingle{}\hyperlink{dlistiterator_8h_aa5fb3cc3e82ba75af115999bccd88460}{d\+List\+Iterator\+\_\+to\+Last()}\textquotesingle{} for example! 
+\end{DoxyAttention}
 \index{dlistiterator.\+h@{dlistiterator.\+h}!d\+List\+Iterator\+\_\+remove@{d\+List\+Iterator\+\_\+remove}}
 \index{d\+List\+Iterator\+\_\+remove@{d\+List\+Iterator\+\_\+remove}!dlistiterator.\+h@{dlistiterator.\+h}}
 \subsubsection[{\texorpdfstring{d\+List\+Iterator\+\_\+remove(\+D\+List\+Iterator $\ast$iterator)}{dListIterator_remove(DListIterator *iterator)}}]{\setlength{\rightskip}{0pt plus 5cm}void d\+List\+Iterator\+\_\+remove (

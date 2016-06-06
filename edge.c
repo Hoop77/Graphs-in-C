@@ -14,6 +14,14 @@ Edge *edge_new( int toVertexNum )
 
 void edge_destroy( Edge *edge )
 {
+    free( edge );
+
+    return;
+}
+
+
+void edge_destroyAll( Edge *edge )
+{
     assert( edge != NULL );
     dListIterator_destroy( edge->correspondingEdgeIterator );
 

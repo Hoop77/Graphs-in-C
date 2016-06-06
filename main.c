@@ -1,12 +1,9 @@
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// PROGRAM DESCRIPTION
-// -------------------
-//
-// Author: Philipp Badenhoop
-// Description: This program finds an Eulerian path on a given input graph.
-// C-standard: C89,C90
-//
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+/**
+ * @file main.h
+ * @author Philipp Badenhoop
+ * @date 6 Jun 2016
+ * @brief This program loads a graph from text file and outputs an eulerian path if it exists.
+ */
 
 
 #include "string.h"
@@ -20,18 +17,23 @@
 #include "comparator.h"
 
 
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// DEFINITIONS
-// -----------
-
-
+/**
+ * @brief This is defined when the program is compiled in release mode.
+ */
 #define NDEBUG
 
 
-// Just a simple flag which should indicate if a vertex number is not valid.
+/**
+ * @brief Just a simple flag which should indicate if a vertex number is not valid.
+ */
 #define VERTEX_UNDEFINED	-1
 
 
+/**
+ * @brief We have to categorize the input graph to see whether an eulerian path
+ * could potentially exist or whether we have to convert the graph so that we can use
+ * the algorithm to find an eulerian cycle first and print an eulerian path afterwards.
+ */
 typedef enum
 {
     GRAPH_TYPE_NO_VERTICES_WITH_UNEVEN_DEGREE,
@@ -40,13 +42,10 @@ typedef enum
     GRAPH_TYPE_ALL_VERTICES_WITH_ZERO_DEGREE
 } GraphType;
 
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// DATA STRUCTURES
-// ---------------
-
+/**
+ * TODO Comment!
+ */
 typedef struct
 {
     GraphType graphType;
@@ -62,31 +61,25 @@ typedef struct
     Path *eulerianCycle;
 } EulerianCycleResult;
 
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// FUNCTION DECLARATION
-// --------------------
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+
 Graph *					loadGraph( char * );
 GraphInformation 		checkVertexDegrees( Graph * );
-void 					convertEulerianPathToCycle( Graph *, GraphInformation );
+void 					convertGraph( Graph *, GraphInformation );
 EulerianCycleResult 	findEulerianCycle( Graph *, GraphInformation );
 Path * 					extractSubCircle( Graph *, int );
 
 void 					printEulerianCycle( Path * );
 void					printEulerianPath( Path *, int );
 
+
 #ifdef __cplusplus
 }
 #endif
-
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
 int main( int argc, char *argv[] )
@@ -284,7 +277,7 @@ GraphInformation checkVertexDegrees( Graph *graph )
 }
 
 
-void convertEulerianPathToCycle( Graph *graph, GraphInformation graphInfo )
+void convertGraph( Graph *graph, GraphInformation graphInfo )
 {
     graph_addVertex( graph );
 
@@ -301,7 +294,7 @@ EulerianCycleResult findEulerianCycle( Graph *graph, GraphInformation graphInfo 
 {
     // If the graph has two vertices with uneven degree, we add an edge between those so that we can find an eulerian cycle.
     if( graphInfo.graphType == GRAPH_TYPE_TWO_VERTICES_WITH_UNEVEN_DEGREE )
-        convertEulerianPathToCycle( graph, graphInfo );
+        convertGraph( graph, graphInfo );
 
     // The path's first element will be the vertex with the max degree.
     int mergingVertexNum = graphInfo.vertexWithMaxDegree;
@@ -393,7 +386,8 @@ Path *extractSubCircle( Graph *graph, int startVertexNum )
         path_append( subCircle, nextVertexNum );
 
         // And now we remove the edges between the vertices so we won't take it again.
-        graph_removeEdgePair( graph, currVertexNum, nextVertexNum );
+        bool removed = graph_removeFirstEdgePair( graph, currVertexNum );
+        assert( removed );
 
         // Finally we update the current vertex.
         currVertexNum = nextVertexNum;

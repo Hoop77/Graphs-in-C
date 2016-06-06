@@ -1,0 +1,127 @@
+\hypertarget{pathelement_8h}{}\section{pathelement.\+h File Reference}
+\label{pathelement_8h}\index{pathelement.\+h@{pathelement.\+h}}
+
+
+An element of a path of a graph.  
+
+
+{\ttfamily \#include \char`\"{}basic.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}path.\+h\char`\"{}}\\*
+Include dependency graph for pathelement.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{pathelement_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{pathelement_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structPathElement}{Path\+Element}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structPathElement}{Path\+Element} $\ast$ \hyperlink{pathelement_8h_a3a70b067c34a648f82ad4a96b622ab46}{path\+Element\+\_\+new} (int vertex\+Num)
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a new path element. \end{DoxyCompactList}\item 
+void \hyperlink{pathelement_8h_a27bf0640d268c1054c162ab5ee4b1c0d}{path\+Element\+\_\+destroy} (\hyperlink{structPathElement}{Path\+Element} $\ast$element)
+\begin{DoxyCompactList}\small\item\em Simply frees the pointer to the element. \end{DoxyCompactList}\item 
+int \hyperlink{pathelement_8h_a44b34c29ea6ae65dbc61071015de03b1}{path\+Element\+\_\+get\+Vertex\+Num} (\hyperlink{structPathElement}{Path\+Element} $\ast$element)
+\item 
+bool \hyperlink{pathelement_8h_a4df5181d880f8cba07607039701ff45f}{path\+Element\+\_\+equals} (\hyperlink{structPathElement}{Path\+Element} $\ast$element1, \hyperlink{structPathElement}{Path\+Element} $\ast$element2)
+\begin{DoxyCompactList}\small\item\em Compares two path elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An element of a path of a graph. 
+
+\begin{DoxyAuthor}{Author}
+Philipp Badenhoop 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+6 Jun 2016 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\index{pathelement.\+h@{pathelement.\+h}!path\+Element\+\_\+destroy@{path\+Element\+\_\+destroy}}
+\index{path\+Element\+\_\+destroy@{path\+Element\+\_\+destroy}!pathelement.\+h@{pathelement.\+h}}
+\subsubsection[{\texorpdfstring{path\+Element\+\_\+destroy(\+Path\+Element $\ast$element)}{pathElement_destroy(PathElement *element)}}]{\setlength{\rightskip}{0pt plus 5cm}void path\+Element\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Path\+Element} $\ast$}]{element}
+\end{DoxyParamCaption}
+)}\hypertarget{pathelement_8h_a27bf0640d268c1054c162ab5ee4b1c0d}{}\label{pathelement_8h_a27bf0640d268c1054c162ab5ee4b1c0d}
+
+
+Simply frees the pointer to the element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & \\
+\hline
+\end{DoxyParams}
+\index{pathelement.\+h@{pathelement.\+h}!path\+Element\+\_\+equals@{path\+Element\+\_\+equals}}
+\index{path\+Element\+\_\+equals@{path\+Element\+\_\+equals}!pathelement.\+h@{pathelement.\+h}}
+\subsubsection[{\texorpdfstring{path\+Element\+\_\+equals(\+Path\+Element $\ast$element1, Path\+Element $\ast$element2)}{pathElement_equals(PathElement *element1, PathElement *element2)}}]{\setlength{\rightskip}{0pt plus 5cm}bool path\+Element\+\_\+equals (
+\begin{DoxyParamCaption}
+\item[{{\bf Path\+Element} $\ast$}]{element1, }
+\item[{{\bf Path\+Element} $\ast$}]{element2}
+\end{DoxyParamCaption}
+)}\hypertarget{pathelement_8h_a4df5181d880f8cba07607039701ff45f}{}\label{pathelement_8h_a4df5181d880f8cba07607039701ff45f}
+
+
+Compares two path elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element1} & \\
+\hline
+{\em element2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if the vertex number of the elements are equal. 
+\end{DoxyReturn}
+\index{pathelement.\+h@{pathelement.\+h}!path\+Element\+\_\+get\+Vertex\+Num@{path\+Element\+\_\+get\+Vertex\+Num}}
+\index{path\+Element\+\_\+get\+Vertex\+Num@{path\+Element\+\_\+get\+Vertex\+Num}!pathelement.\+h@{pathelement.\+h}}
+\subsubsection[{\texorpdfstring{path\+Element\+\_\+get\+Vertex\+Num(\+Path\+Element $\ast$element)}{pathElement_getVertexNum(PathElement *element)}}]{\setlength{\rightskip}{0pt plus 5cm}int path\+Element\+\_\+get\+Vertex\+Num (
+\begin{DoxyParamCaption}
+\item[{{\bf Path\+Element} $\ast$}]{element}
+\end{DoxyParamCaption}
+)}\hypertarget{pathelement_8h_a44b34c29ea6ae65dbc61071015de03b1}{}\label{pathelement_8h_a44b34c29ea6ae65dbc61071015de03b1}
+
+\begin{DoxyParams}{Parameters}
+{\em element} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vertex number this element represents. 
+\end{DoxyReturn}
+\index{pathelement.\+h@{pathelement.\+h}!path\+Element\+\_\+new@{path\+Element\+\_\+new}}
+\index{path\+Element\+\_\+new@{path\+Element\+\_\+new}!pathelement.\+h@{pathelement.\+h}}
+\subsubsection[{\texorpdfstring{path\+Element\+\_\+new(int vertex\+Num)}{pathElement_new(int vertexNum)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Path\+Element}$\ast$ path\+Element\+\_\+new (
+\begin{DoxyParamCaption}
+\item[{int}]{vertex\+Num}
+\end{DoxyParamCaption}
+)}\hypertarget{pathelement_8h_a3a70b067c34a648f82ad4a96b622ab46}{}\label{pathelement_8h_a3a70b067c34a648f82ad4a96b622ab46}
+
+
+Allocates and initializes a new path element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex\+Num} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the new path element. 
+\end{DoxyReturn}

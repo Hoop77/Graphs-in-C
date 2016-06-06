@@ -84,6 +84,14 @@ void dList_destroyAll( DList *list );
 
 
 /**
+ * @brief Sets the function which destroys the data of a node.
+ * @param list
+ * @param DestroyFunction
+ */
+void dList_setDestroyFunction( DList *list, DestroyFunction DestroyFunction );
+
+
+/**
  * @param list
  * @return The number of nodes in the list excluding the discrete begin and end nodes.
  */
@@ -111,6 +119,20 @@ void dList_append( DList *list, Data data );
  * @return The data of the i-th node of the list (start counting at the first node).
  */
 Data dList_get( DList *list, int i );
+
+
+/**
+ * @param list
+ * @return The data of the first node.
+ */
+Data dList_getFirst( DList *list );
+
+
+/**
+ * @param list
+ * @return The data of the last node.
+ */
+Data dList_getLast( DList *list );
 
 
 #ifdef __cplusplus

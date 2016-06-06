@@ -112,8 +112,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="center"><img src="dlistiterator_8h__dep__incl.png" border="0" usemap="#dlistiterator_8hdep" alt=""/></div>
 <map name="dlistiterator_8hdep" id="dlistiterator_8hdep">
 <area shape="rect" id="node2" href="edge_8h.html" title="The edge between vertices in a graph. " alt="" coords="23,80,85,107"/>
-<area shape="rect" id="node3" href="vertex_8h_source.html" title="vertex.h" alt="" coords="19,155,89,181"/>
-<area shape="rect" id="node4" href="graph_8h_source.html" title="graph.h" alt="" coords="21,229,87,256"/>
+<area shape="rect" id="node3" href="vertex_8h.html" title="A vertex in a graph. " alt="" coords="19,155,89,181"/>
+<area shape="rect" id="node4" href="graph_8h.html" title="A graph containing vertices which are connected through edges. " alt="" coords="21,229,87,256"/>
 </map>
 </div>
 </div>
@@ -463,7 +463,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The pointer to the new iterator. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The pointer to the new iterator.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>The iterator's current node is initialized with NULL. This means when you start to use it, please set the iterator to a valid node in the list by using '<a class="el" href="dlistiterator_8h.html#afde985be14b96579309b54eed487edd6" title="Sets the current node to the first node of the list. ">dListIterator_toFirst()</a>' or '<a class="el" href="dlistiterator_8h.html#aa5fb3cc3e82ba75af115999bccd88460" title="Sets the current node to the last node of the lsit. ">dListIterator_toLast()</a>' for example! </dd></dl>
 
 </div>
 </div>
