@@ -1,26 +1,26 @@
 #include "dlistiterator.h"
 
 
-inline DListIterator *dListIterator_getIteratorFromList( DList *list )
+DListIterator *dListIterator_getIteratorFromList( DList *list )
 {
     assert( list->listSize > 0 );
     return list->begin->next;
 }
 
 
-inline Data dListIterator_get( DListIterator *iterator )
+Data dListIterator_get( DListIterator *iterator )
 {
     return iterator->data;
 }
 
 
-inline bool dListIterator_isAtEnd( DListIterator *iterator, DList *list )
+bool dListIterator_isAtEnd( DListIterator *iterator, DList *list )
 {
     return iterator == list->end;
 }
 
 
-inline bool dListIterator_isAtBegin( DListIterator *iterator, DList *list )
+bool dListIterator_isAtBegin( DListIterator *iterator, DList *list )
 {
     return iterator == list->begin;
 }

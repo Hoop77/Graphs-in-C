@@ -27,7 +27,7 @@ typedef DListNode DListIterator;
 
 
 /**
- * @brief The iterator is set to its next node.
+ * @brief Sets the iterator to its next node.
  * @param iterator Pointer to the iterator.
  *
  * @attention Do not increment if the iterator is at the discrete end node!
@@ -36,7 +36,7 @@ typedef DListNode DListIterator;
 
 
 /**
- * @brief The iterator is set to its previous node.
+ * @brief Sets the iterator to its previous node.
  * @param iterator Pointer to the iterator.
  *
  * @attention Do not decrement if the iterator is at the discrete begin node!

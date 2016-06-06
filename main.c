@@ -376,7 +376,6 @@ EulerianCycleResult findEulerianCycle( Graph *graph, GraphInformation graphInfo 
     // First create an iterator to go through the elements of the extending path.
     DList *pathElements = path_getElements( path );
     DListIterator *pathIterator = dListIterator_getIteratorFromList( pathElements );
-    dListIterator_toFirst( pathIterator, pathElements );
 
     // Until we reached the end of the path.
     while( !dListIterator_isAtEnd( pathIterator, pathElements ))
