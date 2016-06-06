@@ -175,17 +175,12 @@ int main( int argc, char *argv[] )
     if( graphInfo.graphType != GRAPH_TYPE_NO_VERTICES_WITH_UNEVEN_DEGREE &&
         graphInfo.graphType != GRAPH_TYPE_TWO_VERTICES_WITH_UNEVEN_DEGREE )
     {
-        // Outputting.
-        printf( "An eulerian path does not exist.\n" );
-
         if( graphInfo.graphType == GRAPH_TYPE_MORE_THAN_TWO_VERTICES_WITH_UNEVEN_DEGREE )
         {
-            printf( "More than two vertices with uneven degree.\n" );
+            printf( "-1" );
         }
-        else
-        {
-            printf( "All vertices with zero degree.\n" );
-        }
+
+        printf( "\n" );
 
         proceed = false;
     }
