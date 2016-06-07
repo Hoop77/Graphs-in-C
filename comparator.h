@@ -47,14 +47,14 @@ Comparator *comparator_new( Data data, CompareFunction compareFunction );
 /**
  * @brief Simply frees the comparator.
  */
-void            comparator_destroy( Comparator * );
+void comparator_destroy( Comparator * );
 
 
 /**
  * @brief Compares the stored data with input data.
  * @return true, if the stored and input data match the implemented compare criteria.
  */
-bool            comparator_compare( Comparator *, Data );
+bool comparator_compare( Comparator *, Data );
 
 
 #ifdef __cplusplus

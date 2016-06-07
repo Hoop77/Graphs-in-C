@@ -23,12 +23,11 @@
  * the corresponding edge and we want that to happen fast! Using this approach, we don't have to search it
  * incrementally in a doubly linked list but rather destroy it immediately.
  */
-typedef struct Edge Edge;
-struct Edge
+typedef struct
 {
     int             toVertexNum;                    /**< The vertex number of the vertex this edge goes to. */
     DListIterator * correspondingEdgeIterator;      /**< An iterator to  */
-};
+} Edge;
 
 
 #ifdef __cplusplus
