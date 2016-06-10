@@ -43,14 +43,6 @@ void graph_destroyAll( Graph *graph )
 }
 
 
-void graph_setVertex( Graph *graph, Vertex *vertex, int vertexNum )
-{
-    assert( vertexNum < graph->vertexCount );
-    graph->vertices[ vertexNum ] = vertex;
-    return;
-}
-
-
 Vertex *graph_getVertex( Graph *graph, int vertexNum )
 {
     return graph->vertices[ vertexNum ];

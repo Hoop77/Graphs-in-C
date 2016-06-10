@@ -55,14 +55,6 @@ void graph_destroyAll( Graph *graph );
 
 /**
  * @param graph
- * @param vertex
- * @param vertexNum
- */
-void graph_setVertex( Graph *graph, Vertex *vertex, int vertexNum );
-
-
-/**
- * @param graph
  * @param vertexNum
  * @return Get the vertex object at a specified vertex number.
  */

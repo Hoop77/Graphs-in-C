@@ -26,7 +26,7 @@
 typedef struct
 {
     int             toVertexNum;                    /**< The vertex number of the vertex this edge goes to. */
-    DListIterator * correspondingEdgeIterator;      /**< An iterator to  */
+    DListIterator * correspondingEdgeIterator;      /**< In a bidirectional graph to have quick acces to the edge going from the 'to'-vertex to the vertex which this edge is connected with. */
 } Edge;
 
 
